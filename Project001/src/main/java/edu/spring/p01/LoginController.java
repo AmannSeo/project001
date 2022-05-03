@@ -47,7 +47,7 @@ public class LoginController {
 			return "redirect:/member/login";
 		}
 		
-		session.setAttribute("vo", member);
+		session.setAttribute("sessionMemberVo", member);
 		
 		return "redirect:/main";
 	}

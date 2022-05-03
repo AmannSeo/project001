@@ -16,6 +16,7 @@ public class MemberVO {
 	private String memberAdd03; // 회원 상세 주소
 	private Date regDate; // 회원 등록 일자
 	private int adminCk; // 0 : 회원, 1 : 관리자
+	private int memberPoint; // 회원 적립금
 	
 	public MemberVO() {
 		super();
@@ -23,7 +24,7 @@ public class MemberVO {
 
 	public MemberVO(int memberNo, String memberId, String memberPw, String memberName, String memberBirth,
 			String memberPhone, String memberMail, String memberMailAgree, String memberAdd01, String memberAdd02,
-			String memberAdd03, Date regDate, int adminCk) {
+			String memberAdd03, Date regDate, int adminCk, int memberPoint) {
 		super();
 		this.memberNo = memberNo;
 		this.memberId = memberId;
@@ -38,7 +39,13 @@ public class MemberVO {
 		this.memberAdd03 = memberAdd03;
 		this.regDate = regDate;
 		this.adminCk = adminCk;
+		this.memberPoint = memberPoint;
 	}
+
+
+
+
+
 
 	public int getMemberNo() {
 		return memberNo;
@@ -144,13 +151,22 @@ public class MemberVO {
 		this.adminCk = adminCk;
 	}
 
+	public int getMemberPoint() {
+		return memberPoint;
+	}
+
+	public void setMemberPoint(int memberPoint) {
+		this.memberPoint = memberPoint;
+	}
+
+
 	@Override
 	public String toString() {
 		return "MemberVO [memberNo=" + memberNo + ", memberId=" + memberId + ", memberPw=" + memberPw + ", memberName="
 				+ memberName + ", memberBirth=" + memberBirth + ", memberPhone=" + memberPhone + ", memberMail="
 				+ memberMail + ", memberMailAgree=" + memberMailAgree + ", memberAdd01=" + memberAdd01
 				+ ", memberAdd02=" + memberAdd02 + ", memberAdd03=" + memberAdd03 + ", regDate=" + regDate
-				+ ", adminCk=" + adminCk + "]";
+				+ ", adminCk=" + adminCk + ", memberPoint=" + memberPoint + "]";
 	}
 
 	

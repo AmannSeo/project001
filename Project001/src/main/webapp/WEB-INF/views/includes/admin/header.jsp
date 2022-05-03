@@ -1,56 +1,77 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
+
 <meta charset="UTF-8">
 
-    <!-- Required meta tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    
-    <!-- reset CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-    
-    <!-- index/css -->
-    <link rel="stylesheet" href="/resources/css/admin/index.css">  
+<!-- bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- custom css -->
+<link rel="stylesheet" href="/resources/css/includes/header.css">
 
-</head>
-<body>
-  <div class="wrapper">
-  <!-- 로그인 -->
-    <div class="top_gnb_area">
-      <c:if test="${vo != null }">
-        <div class="member_login_part">
-          <span>회원 : ${vo.memberName }</span>
-        </div>
-        <button type="button" id="btn_logout">로그아웃</button>
-      </c:if>
-    </div>
+<style type="text/css">
+.nav-link {
+  color : black;
+}
+.member_login_part span {
+  color: black;
+}
+.admin_login_part span{
+  color: black;
+}
+.wrapper {
+  padding : 20px 20px 0 20px;
+  border-bottom: 1px solid rgb(0, 5, 16 );
+}
 
-    <!-- 컨텐츠 영역 -->
-    <div class="admin_wrap">
-      <!-- 네비영역 -->
-      <div class="admin_navi_wrap">
-        <ul>
-          <li class="admin_list_02"><a href="/admin/productList">상품 목록</a></li>
-          <li class="admin_list_01"><a href="/admin/productReg">상품 등록</a></li>
-          <li class="admin_list_03"><a href="/admin/memberManage">회원 관리</a></li>
-          <li class="admin_list_04"><a href="/admin/productFaq">상품 문의</a></li>
-          <li class="admin_list_05"><a href="/admin/productComment">상품평 관리</a></li>
-          <li class="admin_list_06"><a href="/admin/helpList">자주하는 질문 관리</a></li>
-          <li class="admin_list_07"><a href="/admin/noticeList">공지사항 관리</a></li>
-        </ul>
-      </div>
-      
-      
-      
-      
-      
-      
-      
-      
+</style>
+
+<div class="wrapper nav_wrapper">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+    <a href="/main" class="d-flex align-items-center mb-2 mb-lg-0">
+      <img class="img_logo" src="/resources/imgs/logo_blk.png">
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/product/index" class="nav-link px-2 link-dark">PRODUCTS</a></li>
+        <li><a href="/fine-fragrances" class="nav-link px-2 link-dark">FINE FRAGRANCES</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">HOME CREATIONS</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">BODY - HAIR - FACE</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">ABOUT US</a></li>
+        <li><a href="/help" class="nav-link px-2 link-dark">FAQ</a></li>
+    </ul>
+
+    <button type="button" id="btn_logout" class="btn btn-outline-primary me-2">로그아웃</button>
+  </header>
+</div>
+
+<script type="text/javascript">
+     $(document).ready(function(){
+        
+         $('#btn_logout').click(function(){
+             // location = '../member/logout';
+             $.ajax({
+               type : "POST",
+               url : "/member/logout",
+               success : function(data){
+                 alert("로그아웃 되었습니다.");
+                 document.location.reload();
+               }
+             }); // end ajax
+         }); // end btn_logout.click()
+         
+     }); // end document()
+     
+</script>
+
+
+
+
+
+
+
+
+

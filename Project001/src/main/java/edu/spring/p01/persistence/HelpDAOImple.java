@@ -48,7 +48,7 @@ public class HelpDAOImple implements HelpDAO{
 	public int getTotalNumsOfRecords(PageCriteria criteria) {
 		logger.info("getTotalNumsOfRecords() Call");
 		logger.info("criteria : " + criteria.getKeyword());
-		return helpSqlSession.delete(NAMESPACE + ".help_total_count");
+		return helpSqlSession.selectOne(NAMESPACE + ".help_total_count");
 	}
 
 	// 질문 보기

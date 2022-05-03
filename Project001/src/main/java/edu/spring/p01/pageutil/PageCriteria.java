@@ -6,16 +6,29 @@ import java.util.Arrays;
 // 한 페이지에서 보여질 게시글의 개수를 저장하는 클래스
 // -> paging 처리에 필요한 start와 end 번호를 알 수 있음
 public class PageCriteria {
-	private int page; // 현재 페이지 번호
-	private int numsPerPage; // 한 페이지의 게시글 개수
-	private int skip; // 페이지 스킵
-	private String type; // 검색 타입
-	private String keyword; // 검색 키워드
-	private String[] productArr; // 상품 리스트
+	// 현재 페이지 번호
+	private int page; 
 	
+	// 한 페이지의 게시글 개수
+	private int numsPerPage; 
+	
+	// 페이지 스킵
+	private int skip; 
+	
+	// 검색 타입
+	// type 변수는 사용자가 어떠한 검색을 하는지에 대한 데이터를 저장함
+	private String type; 
+	
+	// 검색 키워드
+	private String keyword; 
+	
+	// 카테고리 코드
+	private String cateCode;
+	
+	// PageCriteria 기본 생성자
 	public PageCriteria() {
 		this.page = 1;
-		this.numsPerPage = 5;
+		this.numsPerPage = 8;
 	}
 	
 	// 검색 타입 데이터 배열 변환
@@ -72,13 +85,15 @@ public class PageCriteria {
 		this.keyword = keyword;
 	}
 	
-	public String[] getProductArr() {
-		return productArr;
+	
+	public String getCateCode() {
+		return cateCode;
 	}
 
-	public void setProductArr(String[] productArr) {
-		this.productArr = productArr;
+	public void setCateCode(String cateCode) {
+		this.cateCode = cateCode;
 	}
+	
 
 	// 현재 보여지는 페이지의 시작 글 일련번호(rn)
 	public int getStart() {
@@ -93,7 +108,7 @@ public class PageCriteria {
 	@Override
 	public String toString() {
 		return "PageCriteria [page=" + page + ", numsPerPage=" + numsPerPage + ", type=" + type
-				+ ", keyword=" + keyword + ", productArr=" + Arrays.toString(productArr) + "]";
+				+ ", keyword=" + keyword + ", cateCode=" + cateCode + "]";
 	}
 
 	

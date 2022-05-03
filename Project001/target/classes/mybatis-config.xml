@@ -23,16 +23,18 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<property name="propductComment" value="product_comment"/>
 		<property name="productFaq" value="product_faq"/>
 		<property name="adminCk" value="admin_ck"/>
+		<property name="memberPoint" value="member_point"/>
 		
 		<!-- 상품 -->
 		<property name="pro01_product" value="pro01_product"/>
 		<property name="productNo" value="product_no"/>
 		<property name="productName" value="product_name"/>
-		<property name="productCategory" value="product_category"/>
+		<property name="cateCode" value="cate_code"/>
 		<property name="productPrice" value="product_price"/>
 		<property name="productAmount" value="product_amount"/>
 		<property name="productIntro" value="product_intro"/>
 		<property name="productRegDate" value="product_reg_date"/>
+		<property name="productImg" value="product_img"/>
 		
 		<!-- 질문 게시판 -->
 		<property name="pro01_help" value="pro01_help"/>
@@ -40,8 +42,29 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<property name="helpTitle" value="help_title"/>
 		<property name="helpName" value="help_name"/>
 		<property name="helpContent" value="help_content"/>
-		<property name="helpRegDate" value="help_reg_date"/>
 		
+		<!-- 공지사항 게시판 -->
+		<property name="pro01_notice" value="pro01_notice"/>
+		<property name="noticeNo" value="notice_no"/>
+		<property name="noticeTitle" value="notice_title"/>
+		<property name="noticeName" value="notice_name"/>
+		<property name="noticeContent" value="notice_content"/>
+		
+		<!-- 카테고리 -->
+		<property name="pro01_category" value="pro01_category"/>
+		<property name="tier" value="tier"/>
+		<property name="cateName" value="cate_name"/>
+		<property name="cateCode" value="cate_code"/>
+		<property name="cateParent" value="cate_parent"/>
+		
+		<!-- 주문	 -->
+		<property name="pro01_order" value="pro01_order"/>
+		<property name="memberNo" value="member_no"/>
+		<property name="memberId" value="member_id"/>
+		<property name="productName" value="product_name"/>
+		<property name="orderAmount" value="order_amount"/>
+		<property name="orderPrice" value="order_price"/>
+		<property name="orderDate" value="order_date"/>
 		
 	</properties>
 	

@@ -1,19 +1,50 @@
 @charset "UTF-8";
+@font-face {
+    font-family: 'Arita-buri-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'AritaBuri';
+    font-style: normal;
+    font-weight: 400;
+    src: local('※'),
+        url('/resources/font/AritaBuriM.woff2') format('woff2'), 
+        url('/resources/font/AritaBuriM.woff') format('woff'),
+        url('/resources/font/AritaBuriM.ttf') format('truetype'),
+        url('/resources/font/AritaBuriM.eot') format('embedded-opentype');
+}
+@import url('http://fonts.cdnfonts.com/css/emberly');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
 body{
   background : black;
+  padding: 0 !important;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+p{
+  font-family: 'AritaBuri' !important;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 0 !important;
 }
 
-/* 메뉴 영역 */
-.menu_gnb_area{
-  border: 1px solid red;
-  background: pink;
-  opacity: 50%;
-  position: absolute;
+.p-1{
+    box-sizing: border-box;
+    border-bottom: 1px solid #dee2e6!important;
+    margin-bottom: 1rem!important;
+    padding: 1rem!important;
 }
-/* logo */
-.img_logo{
-  border : 1px solid red;
-  height : 60px;
+.d-flex {
+  display: flex !important;
+}
+.align-items-center {
+  align-items: center !important;
 }
 
 /* video */
@@ -29,3 +60,672 @@ body{
   background: url("resources/video/vd_bg.png") no-repeat center top;
   background-size: cover;
 }
+
+/* main title part */
+.main_title_part {
+  margin-top: 220px;
+}
+.main_title {
+  font-family: 'Emberly', sans-serif; 
+  font-size: 90px; 
+  color : white;
+  line-height: 0.8;
+}
+.main_title_content{
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal;
+  color : white; 
+  opacity: 0.7;
+  margin-top: 40px;
+}
+.main_title_sub {
+  margin-top: 120px
+}
+.main_title_move {
+  font-family: 'Arita-buri-SemiBold'; 
+  color : white; 
+  opacity: 0.8; 
+  text-decoration-line : underline;
+}
+
+/* part_02 */
+.part_02 {
+  background: url("/resources/imgs/intro_bg.png");
+}
+.part_02_space {
+  height: 264px;
+}
+.part_02_title {
+  text-align: center; 
+  font-family: 'Emberly', sans-serif; 
+  font-size: 76px;
+  line-height: 0.5;
+}
+.part_02_text{
+  text-align: center; 
+  margin-top:16px; 
+  font-size: 14px;
+}
+
+/* keyword_01 */
+.key_img01_box {
+  width: 80vw; 
+  height: 23.5vw; 
+  background: url("/resources/imgs/keyword01_ver01.jpg"); 
+  background-size: cover;
+}
+.keyword01_div {
+  text-align: -webkit-right;
+  padding: 0;
+}
+.keyword_01_box {
+  background: black;
+  width: 690px; 
+  height: 90px; 
+  color:white;
+}
+.keyword_01_box h4 {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  padding-top: 38px; 
+  padding-right: 40px; 
+  margin-top: -70px; 
+  font-size: 16px
+}
+.keyword_01_text p {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size : 14px; 
+  margin-top: 40px; 
+  padding-right: 40px; 
+  color : rgb(102, 102, 102);
+  line-height: 2.2;
+}
+
+/* keyword_02 */
+.key_img02_box {
+  width: 80vw; 
+  height: 23.5vw; 
+  background: url("/resources/imgs/keyword02_ver01.jpg"); 
+  background-size: cover;
+}
+.keyword02_div {
+  text-align: -webkit-left;
+  padding: 0;
+}
+.keyword_02_box {
+  background: black;
+  width: 690px; 
+  height: 90px; 
+  color:white;
+}
+.keyword_02_box h4 {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  padding-top: 38px; 
+  padding-left: 40px; 
+  margin-top: -70px; 
+  font-size: 16px;
+}
+.keyword_02_text p{
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size : 14px; 
+  margin-top: 40px; 
+  padding-left: 40px; 
+  color : rgb(102, 102, 102);
+  line-height: 2.2;
+}
+
+/* keyword_03 */
+.key_img03_box {
+  width: 80vw; 
+  height: 23.5vw; 
+  background: url("/resources/imgs/keyword03_ver01.jpg"); 
+  background-size: cover;
+}
+.keyword01_div {
+  text-align: -webkit-right;
+  padding: 0;
+}
+.keyword_03_box {
+  background: black;
+  width: 690px; 
+  height: 90px; 
+  color:white;
+}
+.keyword_03_box h4 {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  padding-top: 38px; 
+  padding-right: 40px;
+  margin-top: -70px; 
+  font-size: 16px
+}
+.keyword_03_text p {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size : 14px; 
+  margin-top: 40px; 
+  padding-right: 40px; 
+  color : rgb(102, 102, 102);
+  line-height: 2.2;
+}
+
+/* par_03 */
+.part_03_title {
+  text-align: center;
+}
+.part_03_title h2 {
+  font-family: 'Emberly', sans-serif; 
+  font-size: 76px;
+}
+.part_03_title p {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size : 14px; 
+}
+
+/* par_03 sgp_01 */
+.sgp_01_img {
+  background: url("/resources/imgs/sn01_ver01.jpg");
+  background-size : cover;
+  width: 60vw;
+  height: 28vw;
+}
+.sgp_01_text {
+  text-align: left;
+}
+.sgp_01_text h4 {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 18px;
+  padding: 30px 16px;
+  margin: 0;
+}
+.sgp_01_text p {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 12px;
+  padding: 10px 16px;
+  margin: 0;
+  line-height: 2.2;
+  color : rgb(102, 102, 102);
+}
+.sgp_01_btn {
+  margin-top : 40px;
+}
+.sgp_01_text a span{
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 16px;
+  color : rgb(102, 102, 102);
+  padding-left: 16px;
+}
+.sgp_01_imgs {
+  text-align: right;
+  margin-top: -260px;
+}
+.sgp_01_imgs img {
+  max-width: 240px;
+  width: 80%;
+}
+.sgp_01_img01 {
+  margin-right: 20px
+}
+.sgp_01_img02 {
+  margin-right: 20px
+}
+/* par_03 sgp_02 */
+.sgp_02_img {
+  background: url("/resources/imgs/sn02_ver01.jpg");
+  background-size : cover;
+  width: 60vw;
+  height: 28vw;
+}
+.sgp_02_text {
+  text-align: right;
+}
+.sgp_02_text h4 {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 18px;
+  padding: 30px 16px;
+  margin: 0;
+}
+.sgp_02_text p {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 12px;
+  padding: 10px 16px;
+  margin: 0;
+  line-height: 2.2;
+  color : rgb(102, 102, 102);
+}
+.sgp_02_btn {
+  margin-top : 40px;
+}
+.sgp_02_text a span {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 16px;
+  color : rgb(102, 102, 102);
+  padding-right: 16px;
+}
+.sgp_02_imgs {
+  text-align: left;
+  margin-top: -260px;
+}
+.sgp_02_imgs img {
+  max-width: 240px;
+  width: 80%;
+}
+.sgp_02_img01 {
+  margin-right: 20px
+}
+.sgp_02_img02 {
+  margin-right: 20px
+}
+/* par_03 sgp_03 */
+.sgp_03_img {
+  background: url("/resources/imgs/sn03_ver01.jpg");
+  background-size : cover;
+  width: 60vw;
+  height: 28vw;
+}
+.sgp_03_text {
+  text-align: left;
+}
+.sgp_03_text h4 {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 18px;
+  padding: 30px 16px;
+  margin: 0;
+}
+.sgp_03_text p {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 12px;
+  padding: 10px 16px;
+  margin: 0;
+  line-height: 2.2;
+  color : rgb(102, 102, 102);
+}
+.sgp_03_btn {
+  margin-top : 40px;
+}
+.sgp_03_text a span{
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 16px;
+  color : rgb(102, 102, 102);
+  padding-left: 16px;
+}
+.sgp_03_imgs {
+  text-align: right;
+  margin-top: -260px;
+}
+.sgp_03_imgs img {
+  max-width: 240px;
+  width: 80%;
+}
+.sgp_03_img01 {
+  margin-right: 20px
+}
+.sgp_03_img02 {
+  margin-right: 20px
+}
+
+/* par_03 sgp_04 */
+.sgp_04_img {
+  background: url("/resources/imgs/sn04_ver01.jpg");
+  background-size : cover;
+  width: 60vw;
+  height: 28vw;
+}
+.sgp_04_text {
+  text-align: right;
+}
+.sgp_04_text h4 {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 18px;
+  padding: 30px 16px;
+  margin: 0;
+}
+.sgp_04_text p {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 12px;
+  padding: 10px 16px;
+  margin: 0;
+  line-height: 2.2;
+  color : rgb(102, 102, 102);
+}
+.sgp_04_btn {
+  margin-top : 40px;
+}
+.sgp_04_text a span {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 16px;
+  color : rgb(102, 102, 102);
+  padding-right: 16px;
+}
+.sgp_04_imgs {
+  text-align: left;
+  margin-top: -260px;
+}
+.sgp_04_imgs img {
+  max-width: 240px;
+  width: 80%;
+}
+.sgp_04_img01 {
+  margin-right: 20px
+}
+.sgp_04_img02 {
+  margin-right: 20px
+}
+
+/* part_04 */
+.part_04_img{
+  width: 76vw;
+  height: 400px;
+  background: url("/resources/imgs/bhf_main_ver01.jpg");
+  background-size: cover;
+}
+.part_04_title{
+  margin-top: -50px;
+  text-align: -webkit-right;
+}
+.part_04_title h2 {
+  font-family: 'Emberly', sans-serif; 
+  font-size: 76px;
+}
+.part_04_title p {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 14px;
+  color : rgb(102, 102, 102);
+}
+.part_04_products {
+  display: flex;
+}
+
+/* part_05 */
+.part_05 {
+  text-align: -webkit-right;
+}
+.part_05_img{
+  width: 76vw;
+  height: 400px;
+  background: url("/resources/imgs/bhf_main_ver01.jpg");
+  background-size: cover;
+}
+.part_05_title{
+  margin-top: -50px;
+  text-align: left;
+}
+.part_05_title h2 {
+  font-family: 'Emberly', sans-serif; 
+  font-size: 76px;
+}
+.part_05_title p {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 14px;
+  color : rgb(102, 102, 102);
+}
+.part_05_products {
+  display: flex;
+}
+
+/* part_06 */
+
+.part_06_title {
+  text-align: center;
+  background: url("/resources/imgs/part06_bg.jpg");
+  background-size: cover;
+}
+.part_06_title h2 {
+  color : white;
+  font-family: 'Emberly', sans-serif; 
+  font-size: 76px;
+}
+.part_06_title p {
+  color : #ccc;
+}
+.part_06_products {
+  display: flex;
+}
+.part_06_pro img {
+  position: relative;
+  max-width: 100%;
+  padding : 0 10px;
+}
+.part_06_detail {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+.part_06_detail h4{
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  text-align: center;
+  font-size: 16px;
+}
+.part_06_detail p{
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  text-align: center;
+  font-size: 14px;
+  color : rgb(102, 102, 102);
+}
+.part_06_title_btn a span {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  font-size: 16px;
+  color : rgb(102, 102, 102);
+  padding-right: 16px;
+  color: white;
+}
+
+/* product list effct */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
+figure.snip1200 {
+  font-family: 'AritaBuri';
+  font-weight: 400;
+  font-style: normal; 
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 220px;
+  max-width: 310px;
+  max-height: 310px;
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+}
+figure.snip1200 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.45s ease-in-out;
+  transition: all 0.45s ease-in-out;
+}
+figure.snip1200 img {
+  max-width: 100%;
+  position: relative;
+  opacity: 0.9;
+}
+figure.snip1200 figcaption {
+  position: absolute;
+  top: 45%;
+  left: 7%;
+  right: 7%;
+  bottom: 45%;
+  border: 1px solid white;
+  border-width: 1px 1px 0;
+}
+figure.snip1200 .heading {
+  overflow: hidden;
+  -webkit-transform: translateY(50%);
+  transform: translateY(50%);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+figure.snip1200 h2 {
+  display: table;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  width: auto;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 16px;
+}
+figure.snip1200 h2 span {
+  font-weight: 800;
+}
+figure.snip1200 h2:before,
+figure.snip1200 h2:after {
+  position: absolute;
+  display: block;
+  width: 1000%;
+  height: 1px;
+  content: '';
+  background: white;
+  top: 50%;
+}
+figure.snip1200 h2:before {
+  left: -1000%;
+}
+figure.snip1200 h2:after {
+  right: -1000%;
+}
+figure.snip1200 .p_top {
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0;
+  opacity: 0;
+  line-height: 1.6em;
+  font-size: 0.8em;
+}
+figure.snip1200 hr {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  width: 80%;
+  margin: 0;
+  opacity: 0;
+  line-height: 1.6em;
+  margin-left: 26px;
+}
+figure.snip1200 .p_bottom {
+  font-family: 'Arita-buri-SemiBold' !important;
+  top: 60%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0;
+  opacity: 0;
+  line-height: 1.6em;
+  font-size: 1em;
+}
+figure.snip1200 a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+figure.snip1200:hover img,
+figure.snip1200.hover img {
+  opacity: 0.25;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+figure.snip1200:hover figcaption,
+figure.snip1200.hover figcaption {
+  top: 7%;
+  bottom: 7%;
+}
+figure.snip1200:hover .p_top,
+figure.snip1200.hover .p_top {
+  opacity: 1;
+  -webkit-transition-delay: 0.35s;
+  transition-delay: 0.35s;
+}
+figure.snip1200:hover hr,
+figure.snip1200.hover hr {
+  opacity: 0.3;
+  -webkit-transition-delay: 0.35s;
+  transition-delay: 0.35s;
+  padding: 0 20px;
+}
+figure.snip1200:hover .p_bottom,
+figure.snip1200.hover .p_bottom {
+  opacity: 1;
+  -webkit-transition-delay: 0.35s;
+  transition-delay: 0.35s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

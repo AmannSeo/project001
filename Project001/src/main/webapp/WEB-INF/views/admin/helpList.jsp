@@ -24,12 +24,18 @@
 <title>질문 게시판</title>
 </head>
 <body>
-  <!-- header -->
-  <%@include file="../includes/admin/header.jsp" %>
-  <h2>질문 게시판</h2>
+<!-- header -->
+<%@include file="../includes/admin/header.jsp" %>
+
+<!-- content -->
+<div class="content" style="display: flex;">
+  <%@include file="../includes/admin/admin_menu.jsp" %>
+
   
 
   <div class="help_list">
+  <h2>질문 게시판</h2>
+  <div style="height : 40px;"></div>
   <!-- 질문 존재 O -->
     <c:if test="${listCheck != 'empty' }">
       <table class="help_list_table">
@@ -59,42 +65,31 @@
         </tbody>
       </table>
     </c:if>
-    
+    <div style="height : 40px;"></div>
+    <div class="pro_reg_btn">
+      <a href="helpInsert"><input type="button" value="질문 등록"></a>
+    </div>
   </div>
-  <div class="pro_reg_btn">
-    <a href="helpInsert"><input type="button" value="질문 등록"></a>
-  </div>
+  
+  
     
-  <!-- 페이징 -->
-  <div class="pageMaker_wrap">
-    <ul class="pageMaker">
-      <!-- 이전 버튼 -->
-      <c:if test="${pageMaker.hasPrev }"> <!-- 페이지에 이전이 있을경우에만 버튼을 만든다 -->
-        <li class="pageMaker_btn prev">
-          <a href="productList?page=${pageMaker.startPageNo - 1 }">이전</a>
-        </li>
-      </c:if>
-    
-      <!-- 페이지 번호 -->
-      <!-- 반복문에 시작과 끝이 있을 경우 -->
-      <c:forEach begin="${pageMaker.startPageNo }" 
-      end="${pageMaker.endPageNo }" var="num"> 
-        <li class="pageMaker_btn ${pageMaker.criteria.page == num ? "active":""}">
-          <a href="productList?page=${num }">${num }</a>
-        </li>
-      </c:forEach>
       
-      <!-- 다음 버튼 -->
-      <c:if test="${pageMaker.hasNext }">
-        <li class="pageMaker_btn next">
-          <a href="productList?page=${pageMaker.endPageNo + 1 }">다음</a>
-        </li>
-      </c:if>
-    </ul>
-  </div>
-      
-    
+</div>    
  
   
 </body>
+<!-- footer -->
+<%@include file="../includes/admin/footer.jsp" %>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,9 +9,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,8 +32,9 @@ public class MemberController {
 	
 	@Autowired
 	private JavaMailSender mailSender;
-
-	// 회원가입 페이지 이동
+	
+	
+	
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public void joinGET() {
 		logger.info("joinGET() Call");
@@ -48,14 +51,25 @@ public class MemberController {
 		
 		logger.info("insert success");
 		
+		/*
+		 * String rawPw = ""; // 인코딩 전 비밀번호 String encodePw = ""; // 인코딩 후 비밀번호
+		 * 
+		 * rawPw = vo.getMemberPw(); // 비밀번호 데이터 얻음 encodePw = pwEncoder.encode(rawPw);
+		 * // 비밀번호 인코딩 vo.setMemberPw(encodePw); // 인코딩 된 비밀번호 vo객체에 다시 저장
+		 */		
+		/* 회원가입 쿼리 실행 */
+		memberService.insert(vo);
+		
+		
 		return "redirect:/main";
+	
 	}
 	
 	// 마이페이지 이동
 	@GetMapping(value="/mypage")
-	public void mypageGET(Model model, String memberId) {
-		logger.info("mypageGET() Call - memberId : " + memberId);
-		MemberVO vo = memberService.select(memberId);
+	public void mypageGET(Model model, int memberNo) {
+		logger.info("mypageGET() Call - memberNo : " + memberNo);
+		MemberVO vo = memberService.select(memberNo);
 		model.addAttribute("vo", vo);
 	}
 	
@@ -123,11 +137,45 @@ public class MemberController {
         return num;
 	}
 	
-	
 	// 회원 정보 수정
+	@GetMapping("/update")
+	public void updateGET(Model model, Integer memberNo) {
+		logger.info("updateGET() Call");
+		logger.info("Member No : " + memberNo);
+		MemberVO member = memberService.select(memberNo);
+		model.addAttribute("memberNo", member);
+	}
+	
+	@PostMapping("/update")
+	public String updatePOST(MemberVO member) {
+		logger.info("updatePOST() Call");
+		logger.info("member : " + member);
+		int result = memberService.update(member);
+		if(result == 1) {
+			logger.info("member ID update Success");
+			return "redirect:/member/mypage?memberNo=" + member.getMemberNo();
+		} else {
+			logger.info("member ID update Fail");
+			return "redirect:/member/update?memberNo=" + member.getMemberNo();
+		}
+	}
 	
 	// 회원 정보 삭제
+	@GetMapping("/delete")
+	public String deleteGET(Integer memberNo) {
+		logger.info("delete() Call");
+		logger.info("delete member No : " + memberNo);
+		int result = memberService.delete(memberNo);
+		if(result == 1) {
+			logger.info("member Delete success");
+			return "redirect:/main";
+		} else {
+			logger.info("member Delete Fail");
+			return "redirect:/member/mypage?memberNo=" + memberNo;
+		}
+	}
 	
+
 	
 }
 

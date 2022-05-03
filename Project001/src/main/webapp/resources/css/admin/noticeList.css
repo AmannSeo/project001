@@ -1,0 +1,29 @@
+@charset "UTF-8";
+.notice_list {
+  padding : 50px 80px;
+}
+.notice_list table {
+  width: 1200px;
+}
+.notice_list thead {
+  background: rgb(0, 5, 16);
+}
+.notice_list th {
+  text-align : center;
+  padding : 20px;
+  color : white;
+}
+.notice_list td {
+  text-align : center;
+  padding : 20px 0;
+  border-bottom: 1px solid rgb(0, 5, 16);
+}
+.notice_list td a {
+  color : black;
+  text-decoration: none;
+}
+
+
+
+
+

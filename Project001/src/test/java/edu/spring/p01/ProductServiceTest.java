@@ -28,18 +28,12 @@ public class ProductServiceTest {
 		
 	}
 
-	private void testInsert() throws Exception {
-		ProductVO vo = new ProductVO(0, "test2", "test2", 100, 10, "test1", null);
-		
-		int result = service.insert(vo);
-		
-		if(result == 1) {
-			logger.info("insert success");
-		} else {
-			logger.info("insert fail");
-		}
+	private void testInsert() {
+		// TODO Auto-generated method stub
 		
 	}
+
+	
 	
 	
 

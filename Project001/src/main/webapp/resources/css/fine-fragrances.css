@@ -1,0 +1,30 @@
+@charset "UTF-8";
+@import url('http://fonts.cdnfonts.com/css/emberly');
+body {
+  padding: 0 !important;
+}
+p {
+  font-size: 14px !important;
+}
+.fine_wrap {
+  background: url("/resources/imgs/ff_bg.jpg");
+  background-size: cover;
+  background-position-y : 4%;
+  height: 480px;
+}
+h1 {
+  font-family: 'Emberly', sans-serif; 
+  font-size: 88px !important;  
+}
+h4 {
+  font-family: 'Emberly', sans-serif; 
+  font-size: 56px !important;
+}
+
+.main-title, .main-info {
+  color: white;
+  opacity: 86%;
+}
+
+
+

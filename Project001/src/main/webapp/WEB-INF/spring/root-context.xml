@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns:mvc="http://www.springframework.org/schema/mvc"
-		xmlns:context="http://www.springframework.org/schema/context"
-		xmlns:tx="http://www.springframework.org/schema/tx"
-		xsi:schemaLocation="http://www.springframework.org/schema/beans
-		https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/mvc
-		http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://www.springframework.org/schema/context
-		http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/tx
-		http://www.springframework.org/schema/tx/spring-tx.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- log4j -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>	
+		<property name="username" value="c##vam"></property>
+		<property name="password" value="1234"></property>
+	</bean>	
 	
 	<bean id="ds" class="oracle.jdbc.pool.OracleDataSource"
 		destroy-method="close">
@@ -62,6 +72,10 @@
 	     </property>
 	</bean>	
 	
+	
+	<tx:annotation-driven />
+	<task:annotation-driven/>
+	
 	<!-- navermail설정 -->
 	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
 	 <property name="host" value="smtp.naver.com"/> 메이서버 호스트
@@ -91,7 +105,15 @@
 		Persistence/Service Layer의 컴포넌트 클래스들을 bean으로 등록
 	 -->
 	 <context:component-scan base-package="edu.spring.p01"></context:component-scan>
+	 <context:component-scan base-package="edu.spring.p01.task"></context:component-scan>
 		
+	<!-- 업로드 패스 설정 -->	
+	<bean id="uploadPath" class="java.lang.String">
+      <constructor-arg value="C:\Users\seo04\Web_Codes\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Project001\resources">
+      </constructor-arg>   
+   	</bean>
+
+
 </beans>
 
 

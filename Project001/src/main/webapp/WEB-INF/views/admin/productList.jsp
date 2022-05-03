@@ -19,22 +19,29 @@
 
     <!-- index/css -->
     <link rel="stylesheet" href="/resources/css/admin/productList.css">
+    
+    <!-- custom css -->
+    <link rel="stylesheet" href="/resources/css/includes/page.css">
   
 <title>상품 목록</title>
 </head>
 <body>
-  <!-- header -->
-  <%@include file="../includes/admin/header.jsp" %>
-  
+<!-- header -->
+<%@include file="../includes/admin/header.jsp" %>
+
+<!-- content -->
+<div class="content" style="display: flex;">
+  <%@include file="../includes/admin/admin_menu.jsp" %>
   <div class="productList_wrapper">
     <div class="productList_wrap">
       <h2>상품 목록</h2>
-      <div class="product_list">
+      <div class="product_list" style="padding: 50px 0;">
       <!-- 상품이 존재 O -->
         <c:if test="${listCheck != 'empty' }">
           <table class="product_list_table">
             <thead>
               <tr>
+                <th class="list_no th_column_0">상품이미지</th>
                 <th class="list_no th_column_01">상품번호</th>
                 <th class="list_name th_column_02">상품명</th>
                 <th class="list_category th_column_03">카테고리</th>
@@ -47,12 +54,14 @@
               <c:forEach var="list" items="${list }">
                 <tr>
                   <td><c:out value="${list.productNo }"></c:out></td>
-                  <td><a href="productDetail?productNo=${list.productNo }&page=${pageMaker.criteria.page}"><c:out value="${list.productName }"></c:out></a></td>
-                  <td><c:out value="${list.productCategory }"></c:out></td>
-                  <td><c:out value="${list.productPrice }"></c:out></td>
+                  <td><a href="productDetail?productNo=${list.productNo }"><c:out value="${list.productName }"></c:out></a></td>
+                  <td><c:out value="${list.cateCode }"></c:out></td>
+                  <td>
+                  <fmt:formatNumber value="${list.productPrice}" pattern="#,###,### 원" />
+                  </td>
                   <td><c:out value="${list.productAmount }"></c:out></td>
                   <fmt:formatDate value="${list.productRegDate }"
-                    pattern="yyyy년 MM월 dd일 HH시mm분ss초" var="productRegDate"/>
+                    pattern="yyyy년 MM월 dd일" var="productRegDate"/>
                   <td><c:out value="${productRegDate }"></c:out></td>
                 </tr>
               </c:forEach>
@@ -68,41 +77,15 @@
         </c:if>     
       </div>
       
-      <!-- 상품 등록 버튼 -->
-      <div class="pro_reg_btn">
-        <a href="productReg"><input type="button" value="상품 등록"></a>
-      </div>
-        
-      <!-- 검색 영역 -->
-      <div class="search_wrap">
-        <form id="searchForm" action="/admin/productList" method="get">
-          <div class="select_list">
-            <select class="select_form" name="searchType" id="searchType">
-              <option value="producNo">상품번호</option>
-              <option value="productName">상품명</option>
-              <option value="productCategory">카테고리</option>
-            </select>
-          </div>
-          <div class="search_input">
-            <input type="text" name="keyword" value='<c:out value="${pageMaker.criteria.keyword}"></c:out>'>
-            <input type="hidden" name="page" value='<c:out value="${pageMaker.criteria.page }"></c:out>'>
-            <input type="hidden" name="numsPerPage" value='${pageMaker.criteria.numsPerPage}'>
-            <button class='btn search_btn'>검색</button>
-          </div>
-        </form>
-      </div>  
-      
-      <!-- 페이징 -->
-      <div class="pageMaker_wrap">
+    
+      <div class="paging_num">
         <ul class="pageMaker">
-          <!-- 이전 버튼 -->
           <c:if test="${pageMaker.hasPrev }"> <!-- 페이지에 이전이 있을경우에만 버튼을 만든다 -->
-            <li class="pageMaker_btn prev">
+            <li class="pageMaker_btn hasPrev">
               <a href="productList?page=${pageMaker.startPageNo - 1 }">이전</a>
             </li>
           </c:if>
         
-          <!-- 페이지 번호 -->
           <!-- 반복문에 시작과 끝이 있을 경우 -->
           <c:forEach begin="${pageMaker.startPageNo }" 
           end="${pageMaker.endPageNo }" var="num"> 
@@ -111,18 +94,40 @@
             </li>
           </c:forEach>
           
-          <!-- 다음 버튼 -->
+         
+          
           <c:if test="${pageMaker.hasNext }">
-            <li class="pageMaker_btn next">
+            <li class="pageMaker_btn hasNext">
               <a href="productList?page=${pageMaker.endPageNo + 1 }">다음</a>
             </li>
           </c:if>
         </ul>
       </div>
       
+        
+      <!-- 검색 영역 -->
+      <div class="search_wrap">
+      	<form id="searchForm" action="/admin/productList" method="get">
+      		<div class="search_input">
+      			<input type="text" name="keyword" value='<c:out value="${pageMaker.criteria.keyword}"></c:out>'>
+      			<input type="hidden" name="page" value='<c:out value="${pageMaker.criteria.page }"></c:out>'>
+      			<input type="hidden" name="numsPerPage" value='${pageMaker.criteria.numsPerPage}'>
+      			<input type="hidden" name="type" value="G">
+      			<button class='btn search_btn'>검 색</button>                				
+      		</div>
+      	</form>
+      </div>
+      
+      <!-- 상품 등록 버튼 -->
+      <div class="pro_reg_btn">
+        <a href="productReg"><input type="button" value="상품 등록"></a>
+      </div>
+      
+      
     </div>
   </div>
   
+</div>
  
   
   
@@ -134,7 +139,10 @@
   
 	$(document).ready(function(){
 	    let result = '<c:out value="${insert_result}"/>';
+	    let searchForm = $('#searchForm');
+	    
 	    checkResult(result);
+	    
 	    function checkResult(result){
 	        if(result === ''){
 	            return;
@@ -143,31 +151,32 @@
 	    }
   
 	    
-    	let searchForm = $('#searchForm');
     	
     	
-    	/* 상품 검색 버튼 동작 */
-    	$("#searchForm button").on("click", function(e){
-    		
-    		e.preventDefault();
-    		
-    		/* 검색 키워드 유효성 검사 */
-    		if(!searchForm.find("input[name='keyword']").val()){
-    			alert("키워드를 입력해주세요.");
-    			return false;
-    		}
-    		
-    		searchForm.find("input[name='page']").val("1");
-    		
-    		searchForm.submit();
-    		
-    	});
+	    /* 검색 버튼 동작 */
+	    $("#searchForm button").on("click", function(e){
+	    	
+	    	e.preventDefault();
+	    	
+	    	/* 검색 키워드 유효성 검사 */
+	    	if(!searchForm.find("input[name='keyword']").val()){
+	    		alert("키워드를 입력하십시오");
+	    		return false;
+	    	}
+	    	
+	    	searchForm.find("input[name='pageNum']").val("1");
+	    	
+	    	searchForm.submit();
+	    	
+	    });
 	});
   
 
   
   </script>
 </body>
+<!-- footer -->
+<%@include file="../includes/admin/footer.jsp" %>
 </html>
 
 

@@ -26,7 +26,7 @@ public class SqlSessionTest {
 	
 	@Test
 	public void testInsert() {
-		ProductVO product = new ProductVO(0, "proudct01", "category01", 100, 1, "TestTest", null);
+		ProductVO product = new ProductVO();
 		int result = sqlSession.insert(NAMESPACE + ".insert", product);
 		logger.info(result + " : 상품 등록");
 	}

@@ -52,15 +52,15 @@
 		</interceptor>
 	</interceptors>
 	
+	<!-- String uploadPath = new String("경로"); -->
+	<!-- <beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		파일 업로드 최대 용량 설정 : 1024 * 1024 * 10B = 10MB
+		<beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean> -->
+	
 	<!-- 업로드 관련 빈 -->
-	<!-- web.xml의 설정만 하였을 경우 뷰(클라이언트)로 가 전송한 
-	mulipart 데이터를 전달을 받는 것 까지는 문제없지만,
-	해당 multipart 데이터를 처리 할 수 없음.  -->
-	<!-- 스프링에서는 multipart 데이터를 처리하기 위해서는 
-	MultipartResolver 클래스를 bean으로 등록 해주는설정이 필요함.
-	 -->
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>	
-
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"></beans:bean>
 	
 </beans:beans>
 

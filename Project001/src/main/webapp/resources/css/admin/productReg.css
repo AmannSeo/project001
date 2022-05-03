@@ -1,31 +1,53 @@
 @charset "UTF-8";
-.wrap{
-  clear :both;
-  position: relative;
-  width: 100%;
+.warn_productName {
+  display: none;
+  color: red;
+}
+.warn_productName {
+  display: none;
+  color: red;
+}
+.warn_category {
+  display: none;
+  color: red;
+}
+.warn_price {
+  display: none;
+  color: red;
+}
+.warn_amount {
+  display: none;
+  color: red;
+}
+.warn_proIntro {
+  display: none;
+  color: red;
 }
 
-/* 왼쪽 영역 */
-.wrap_left{
-  float: left;
-  border: 1px solid red;
+#result_card img{
+	max-width: 100%;
+    height: auto;
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+    margin: auto;	
 }
-.wrap_left li{
-  list-style: none;
+#result_card {
+	position: relative;
 }
-
-/* 오른쪽 영역 */
-.wrap_right{
-  float: right;
-  border: 1px solid red;
-}
-
-/* 입력 경고 */
-.form_section_content span{    
-    display: none;
-    padding-top: 10px;
+.imgDeleteBtn{
+    position: absolute;
+    top: 0;
+    right: 5%;
+    background-color: #ef7d7d;
+    color: wheat;
+    font-weight: 900;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 26px;
     text-align: center;
-    color: red;
-    font-size: 1rem;
+    border: none;
+    display: block;
+    cursor: pointer;	
 }
-

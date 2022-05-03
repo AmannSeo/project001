@@ -21,7 +21,7 @@ public class AdminInterceptor implements HandlerInterceptor{
 		logger.info("AdminInterceptor preHandle() Call");
 		HttpSession session = request.getSession();
 		
-		MemberVO member = (MemberVO)session.getAttribute("vo");
+		MemberVO member = (MemberVO)session.getAttribute("sessionMemberVo");
 		
 		if(member == null || member.getAdminCk() == 0) {
 			response.sendRedirect("/main");

@@ -17,22 +17,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 
     <!-- index/css -->
-    <link rel="stylesheet" href="/resources/css/admin/index.css">  
+    <link rel="stylesheet" href="../resources/css/admin/index.css">  
+
 
 <title>Admin Page</title>
 </head>
 <body>
-  <!-- header -->
-  <%@include file="../includes/admin/header.jsp" %>
+<!-- header -->
+<%@include file="../includes/admin/header.jsp" %>
+
+<!-- content -->
+<div class="content" style="display: flex;">
+  <%@include file="../includes/admin/admin_menu.jsp" %>
+    
   
-  
-      <div class="admin_content_wrap">
-        <div class="admin_content_subject">
-          <span>상품 등록</span>
-        </div>
-      </div>
+  <div class="admin_content_wrap">
+    <div class="admin_content_subject">
+      <span></span>
+    </div>
+  </div>
+</div>
       
-   <%@include file="../includes/admin/footer.jsp" %>
+<!-- footer -->
+<%@include file="../includes/admin/footer.jsp" %>
 </body>
 </html>
 

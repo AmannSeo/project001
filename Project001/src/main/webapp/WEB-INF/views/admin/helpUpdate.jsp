@@ -9,8 +9,15 @@
 <title>${help.helpTitle }</title>
 </head>
 <body>
+<!-- header -->
+<%@include file="../includes/admin/header.jsp" %>
+
+<!-- content -->
+<div class="content" style="display: flex;">
+  <%@include file="../includes/admin/admin_menu.jsp" %>
   
    <h2>글 수정</h2>
+   
   <div class="wrapper">
     <div class="wrap">
       <form id="helpUpdate_form" action="/admin/helpUpdate" method="post">
@@ -21,7 +28,7 @@
         </div>
         <div class="wrap_name">
           <span>작성자</span>
-          <input type="text" name="helpName" value="${help.helpName }">
+          <input type="text" name="helpName" value="${help.helpName }" readonly="readonly">
         </div>
         
         <div class="wrap_title">
@@ -44,7 +51,21 @@
       </form>
       
     </div>
+  </div>
 </div>
-
 </body>
+<!-- footer -->
+<%@include file="../includes/admin/footer.jsp" %>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

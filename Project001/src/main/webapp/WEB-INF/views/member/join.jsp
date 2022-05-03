@@ -18,11 +18,16 @@
     <!-- main/css -->
     <link rel="stylesheet" href="/resources/css/member/join.css">  
     
+    <link rel="stylesheet" href="/resources/css/bootstrap/bootstrap.min.css">  
+    <link rel="stylesheet" href="/resources/css/bootstrap/form-validation.css">  
+    
     <title>회원가입</title>
 
 </head>
 <body>
-  <h2>회원가입</h2>
+<!-- header -->
+<%@include file="../includes/layout/nav_blk.jsp" %>
+<!-- 
   <div class="wrap">
     <form id="join_form" method="POST">
     
@@ -43,7 +48,7 @@
         </div>
         <span class="pw_msg">비밀번호를 입력해주세요.</span>
       </div>
-      
+     
       <div class="pwck_container">
         <div class="pwck_name">비밀번호 확인</div>
         <div class="pwck_input_box">
@@ -53,7 +58,7 @@
         <span class="pwck_msg_01">비밀번호가 일치합니다.</span> 
         <span class="pwck_msg_02">비밀번호가 일치하지 않습니다.</span>
       </div>
-
+ 
       <div class="name_container">
         <div class="name_member">이름</div>
         <div class="name_input_box">
@@ -140,6 +145,167 @@
       
     </form>
   </div>
+ -->  
+  
+  
+<!-- bootstrap template -->
+<div class="container" style="border-top : 1px solid black">
+  <main>
+
+    <div class="row g-5">
+        
+        <form id="join_form" class="join_form needs-validation" method="POST">
+          <div class="row g-3 col-md-7 col-lg-8" style="margin: 0 auto;">
+            <div class="join_title" style="margin-top: 100px;">
+              <h2>회원가입</h2>
+            </div>
+          
+            <hr class="my-4" style="margin:10px 0 !important;">
+          
+            <div class="col-12">
+              <div class="id_member">
+                <label class="id_member form-label">아이디</label>
+              </div>
+              <div class="id_input_box input-group has-validation">
+                <input type="text" class="id_input form-control" id="memberId" placeholder="아이디" name="memberId">
+              </div>
+              <span class="idMsg_1">사용 가능한 아이디 입니다.</span>
+              <span class="idMsg_2">존재하는 아이디 입니다.</span>
+              <span class="id_msg">아이디를 입력해주세요.</span>
+            </div>
+            
+
+            <div class="pw_container col-12">
+              <div class="pw_name">
+                <label class="pw_name form-label">비밀번호</label>
+              </div>
+              <div class="pw_input_box input-group has-validation">
+                <input type="password" class="pw_input form-control" name="memberPw" placeholder="비밀번호" id="password">
+              </div>
+              <span class="pw_msg">비밀번호를 입력해주세요.</span>
+            </div>
+            
+            <div class="pwck_container col-12">
+              <div class="pwck_name">
+                <label class="pwck_name form-label">비밀번호 확인</label>
+              </div>
+              <div class="pwck_input_box">
+                <input type="password" class="pwck_input form-control" placeholder="비밀번호 확인">
+              </div>
+              <span class="pwck_msg">비밀번호 확인을 입력해주세요.</span> 
+              <span class="pwck_msg_01">비밀번호가 일치합니다.</span> 
+              <span class="pwck_msg_02">비밀번호가 일치하지 않습니다.</span>
+            </div>
+
+            <div class="name_container col-12">
+              <div class="name_member">
+                <label class="name_member form-label">이름</label>
+              </div>
+              <div class="name_input_box">
+                <input class="name_input form-control" type="text" name="memberName" placeholder="이름">
+              </div>
+              <span class="name_msg">이름을 입력해주세요.</span>
+            </div>
+            
+            <div class="birth_containe col-12">
+              <div class="birth_member">
+                <label class="birth_member form-label">생년월일</label>
+              </div>
+              <div class="birth_input_box">
+                <input class="birth_input form-control" type="date" name="memberBirth">
+              </div>
+              <span class="birth_msg">생년월일을 선택해주세요.</span>
+            </div>
+
+            <div class="phone_container col-12">
+              <div class="phone_member">
+                <label class="phone_member form-label">연락처</label>
+              </div>
+              <div class="phone_input_box">
+                <input class="phone_input form-control" type="tel" name="memberPhone" placeholder="010-1234-1234">
+              </div>
+              <span class="phone_msg">연락처를 입력해주세요.</span>
+              <span class="phone_input_warn"></span>
+            </div>
+
+            <div class="mail_container col-12">
+              <div class="mail_member">
+                <label class="mail_member form-label">이메일</label>
+              </div>
+              <div class="mail_part" style="display: flex">
+                <div class="mail_input_box col-md-8">
+                  <input class="mail_input form-control" type="email" name="memberMail" placeholder="Test@Test.com">
+                </div>
+                <div class="mail_check_btn form-label col-6 col-md-4">
+                   <input type="button" class="form-control" value="인증번호 전송">
+                </div>
+              </div>
+                <span class="mail_msg">이메일을 입력해주세요.</span>
+                <span class="mail_input_warn"></span>
+              
+              <div class="mail_check_container col-12">
+                <div class="mail_check_input_box form-label" id="mail_check_input_box_false">
+                   <input class="mail_check_input form-control" disabled="disabled">
+                </div>
+                <div class="clearfix mail_input_box"></div>
+                <span id="mail_check_input_box_warn"></span>
+              </div>
+              
+              <div class="mail_agree_container" style="display: flex;">
+                <div class="mail_intput_yes_box form-check col-6">
+                  <input type="radio" class="form-check-input" value="Yes" name="memberMailAgree" checked="checked">
+                  <label class="form-check-label mail_agree_yes">예</label>
+                </div>
+                <div class="mail_input_no_box form-check col-6">
+                  <input type="radio" class="form-check-input" value="No" name="memberMailAgree">
+                  <label class="form-check-label mail_agree_no">아니요</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="address_container col-12">
+              <div class="address_member">
+                <label class="address_member form-label">우편번호</label>
+              </div>
+              <div class="add01_member" style="display: flex">
+                <div class="add01_input_box col-md-8">
+                  <input class="add01_input form-control" type="text" name="memberAdd01" readonly>
+                </div>
+                <div class="add_btn col-md-4" onclick="execution_daum_address()">
+                  <input type="button" class="form-control" value="주소찾기">
+                </div>
+                <div class="clearfix"></div>
+              </div>
+              <div class="address_member">
+                <label class="address_member form-label">주소</label>
+              </div>
+              <div class="add02_input_box">
+                <input class="add02_input form-control" type="text" name="memberAdd02" readonly>
+              </div>
+              <div class="add03_member">
+                <div class="address_member">
+                  <label class="address_member form-label">상세주소</label>
+                </div>
+                <div class="add03_input_box">
+                  <input class="add03_input form-control" type="text" name="memberAdd03" readonly>
+                </div>
+                <span class="add_msg">상세 주소를 입력해주세요.</span>
+              </div>
+            </div>
+
+          <hr class="my-4">
+
+          <div class="join_btn_wrap">
+              <button class="btn btn-primary me-2 btn-lg join_btn" type="button">가입하기</button>
+          </div>
+         </div>
+        </form>
+    </div>
+  </main>
+</div>
+<!-- bootstrap end -->
+  
+  
   
   <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script>
@@ -424,4 +590,13 @@
   </script>
 
 </body>
+<!-- footer -->
+<%@include file="../includes/admin/footer.jsp" %>
 </html>
+
+
+
+
+
+
+

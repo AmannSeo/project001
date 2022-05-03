@@ -7,6 +7,10 @@
 <title>ABOUT-US</title>
 </head>
 <body>
+<!-- header -->
+<%@include file="includes/layout/nav_blk.jsp" %>
 
 </body>
+<!-- footer -->
+<%@include file="includes/admin/footer.jsp" %>
 </html>

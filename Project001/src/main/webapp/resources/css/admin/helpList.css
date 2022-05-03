@@ -1,0 +1,29 @@
+@charset "UTF-8";
+.help_list {
+  padding : 50px 80px;
+}
+.help_list table {
+  width: 1200px;
+}
+.help_list thead {
+  background: rgb(0, 5, 16);
+}
+.help_list th {
+  text-align : center;
+  padding : 20px;
+  color : white;
+}
+.help_list td {
+  text-align : center;
+  padding : 20px 0;
+  border-bottom: 1px solid rgb(0, 5, 16);
+}
+.help_list td a {
+  color : black;
+  text-decoration: none;
+}
+
+
+
+
+

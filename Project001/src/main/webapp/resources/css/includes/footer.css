@@ -1,0 +1,117 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Arita-buri-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'AritaBuri';
+    font-style: normal;
+    font-weight: 400;
+    src: local('※'),
+        url('/resources/font/AritaBuriM.woff2') format('woff2'), 
+        url('/resources/font/AritaBuriM.woff') format('woff'),
+        url('/resources/font/AritaBuriM.ttf') format('truetype'),
+        url('/resources/font/AritaBuriM.eot') format('embedded-opentype');
+}
+@import url('http://fonts.cdnfonts.com/css/emberly');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+p{
+  font-family: 'AritaBuri' !important;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 0 !important;
+}
+
+/* footer part */
+footer{
+  background-color: rgb(0, 5, 16);
+}
+/* .footer_part {
+  background-color: rgb(0, 5, 16);
+} */
+.footer_part_top {
+  padding-top: 70px;
+  display: flex;
+}
+.footer_part_bottom {
+  display: flex;
+}
+.footer_menu_part {
+  margin: 0 auto;
+}
+.footer_menu_part ul {
+  display: flex;
+}
+.footer_menu_part ul li a{
+  color : white !important;
+  text-decoration: none;
+  padding-right: 2rem!important;
+  padding-left: 2rem!important;
+  font-family: 'Teko', sans-serif;
+  letter-spacing: 4px;
+  font-size : 20px;
+}
+.footer_sns_part ul {
+  display: flex;
+}
+.footer_sns_part ul li {
+  margin-left: 2.5rem !important;
+}
+.footer_part_map {
+  padding-top: 20px;
+  padding-right : 40px;
+  border-right : 1px solid rgba(255, 255, 255, .5);
+}
+.footer_part_map label {
+  color : white;
+  font-family: 'Teko', sans-serif;
+}
+.footer_part_sub_menu {
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.footer_part_sub_menu ul {
+  display: flex;
+}
+.footer_part_sub_menu li {
+  text-align: center;
+  margin: 0 40px;
+}
+.footer_part_sub_menu ul li a {
+  color : white !important;
+  text-decoration: none;
+  font-size: 12px;
+  font-family: 'Teko', sans-serif;
+  font-size : 14px;
+}
+.footer_part_msg {
+  padding-top: 20px;
+  padding-left : 40px;
+  border-left : 1px solid rgba(255, 255, 255, .5);
+}
+.footer_part_msg span{
+  color : white;
+  font-size: 12px;
+}
+.footer_part_msg a {
+  text-decoration: underline !important;
+  font-family: 'Teko', sans-serif;
+}
+.copy_msg {
+  padding-bottom: 40px;
+}
+.copy_msg p {
+  margin-top : 60px;
+  text-align: center;
+  color : white;
+  font-size: 14px;
+}

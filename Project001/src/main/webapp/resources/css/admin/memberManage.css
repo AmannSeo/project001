@@ -1,21 +1,28 @@
 @charset "UTF-8";
-.wrap{
-  clear :both;
-  position: relative;
-  width: 100%;
+.memberList_wrap{
+  padding : 50px 80px;
+}
+.member_list table {
+  width: 1200px;
+}
+.member_list thead {
+  background: rgb(0, 5, 16);
+}
+.member_list th {
+  text-align : center;
+  padding : 20px 10px;
+  color : white;
+  font-size: 14px;
+}
+.member_list td {
+  text-align : center;
+  padding : 20px 0;
+  border-bottom: 1px solid rgb(0, 5, 16);
+}
+.member_list td a {
+  color : black;
+  text-decoration: none;
 }
 
-/* 왼쪽 영역 */
-.wrap_left{
-  float: left;
-  border: 1px solid red;
-}
-.wrap_left li{
-  list-style: none;
-}
 
-/* 오른쪽 영역 */
-.wrap_right{
-  float: right;
-  border: 1px solid red;
-}
+

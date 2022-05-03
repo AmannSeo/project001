@@ -18,6 +18,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- header -->
+<%@include file="../includes/admin/header.jsp" %>
   <h2>상품평</h2>
 </body>
 </html>

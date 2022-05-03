@@ -6,8 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 회원가입 -->
 	<insert id="insert">
-		insert into ${pro01_member} (${memberId}, ${memberPw}, ${memberName}, ${memberBirth}, ${memberPhone}, ${memberMail}, ${memberMailAgree}, ${memberAdd01}, ${memberAdd02}, ${memberAdd03}, ${adminCk})
-			values (#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberPhone}, #{memberMail}, #{memberMailAgree}, #{memberAdd01}, #{memberAdd02}, #{memberAdd03}, 0)
+		insert into ${pro01_member} (${memberId}, ${memberPw}, ${memberName}, ${memberBirth}, ${memberPhone}, ${memberMail}, ${memberMailAgree}, ${memberAdd01}, ${memberAdd02}, ${memberAdd03}, ${adminCk}, ${memberPoint})
+			values (#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberPhone}, #{memberMail}, #{memberMailAgree}, #{memberAdd01}, #{memberAdd02}, #{memberAdd03}, 0, 100000)
 	</insert>
 	
 	<!-- 아이디 중복검사 -->
@@ -17,13 +17,73 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 로그인 -->
 	<select id="login" resultType="MemberVO">
-		select ${memberId}, ${memberName}, ${memberBirth}, ${memberPhone}, ${memberMail}, ${adminCk} from ${pro01_member} where ${memberId} = #{memberId} and ${memberPw} = #{memberPw}
+		select * from ${pro01_member} where ${memberId} = #{memberId} and ${memberPw} = #{memberPw}
 	</select>
 	
 	<!-- 회원정보 보기 -->
-	<select id="select_by_memberId" resultType="MemberVO">
+	<select id="select_by_memberNo" resultType="MemberVO">
 		select * from ${pro01_member}
-		where ${memberId} like #{memberId}
+		where ${memberNo} like #{memberNo}
 	</select>
+	
+	<!-- 전체 회원 리스트 읽기 -->
+	<select id="member_read_all" resultType="memberVO">
+	   select * from ${pro01_member}
+	   order by ${memberNo} desc
+	</select>
+	
+	<!-- 전체 회원 리스트 불러오기 -->
+	<select id="member_select_all" resultType="memberVO">  <!--페이징처리 -->
+	    select b.* from(
+	          select rownum rn, a.* from(
+	            select * from ${pro01_member} order by ${memberNo} desc
+	          )a
+	    )b where rn between #{start} and #{end}
+	</select>
+	
+	
+	<!-- 전체 회원 총 개수 -->
+	<select id="member_total_count" resultType="Integer">
+	
+	     select count(*) total_cnt from ${pro01_product}
+	 
+	</select>
+	
+	 
+	 <select id="select_by_title_content" resultType = "memberVO">
+	       select * from ${pro01_member}
+	       where ${title} like #{keyword} or
+	             ${content} like #{keyword}
+	             order by #{memberNo} desc
+	 </select>
+	 
+	 <!-- 회원 구매 -->
+	 <update id="update_point">
+	 	update ${pro01_member}
+	 	set ${memberPoint} = ${memberPoint} - #{point}
+	 	where ${memberNo} = #{memberNo}
+	 </update>
+	 
+	 <!-- 회원 정보 수정 -->
+	 <update id="update">
+	 	update ${pro01_member}
+	 	set ${memberPw} = #{memberPw},
+	 		${memberName} = #{memberName},
+	 		${memberBirth} = #{memberBirth},
+	 		${memberPhone} = #{memberPhone},
+	 		${memberMail} = #{memberMail},
+	 		${memberMailAgree} = #{memberMailAgree},
+	 		${memberAdd01} = #{memberAdd01},
+	 		${memberAdd02} = #{memberAdd02},
+	 		${memberAdd03} = #{memberAdd03}
+ 		where ${memberNo} = #{memberNo}
+	 </update>
+	 
+	 <!-- 회원 정보 삭제 -->
+	 <delete id="delete">
+	 	delete from ${pro01_member}
+	 	where ${memberNo} = #{memberNo}
+	 </delete>
+	
 
 </mapper>

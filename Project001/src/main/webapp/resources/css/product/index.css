@@ -1,0 +1,37 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Arita-buri-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-buri-SemiBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+    font-family: 'AritaBuri';
+    font-style: normal;
+    font-weight: 400;
+    src: local('※'),
+        url('/resources/font/AritaBuriM.woff2') format('woff2'), 
+        url('/resources/font/AritaBuriM.woff') format('woff'),
+        url('/resources/font/AritaBuriM.ttf') format('truetype'),
+        url('/resources/font/AritaBuriM.eot') format('embedded-opentype');
+}
+@import url('http://fonts.cdnfonts.com/css/emberly');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
+.card-body a {
+  text-decoration: none;
+ }
+ .product_card {
+  flex: 1 0 50%;
+  float: left;
+  margin: 10px
+ }
+ .card-body a {
+  color : black;
+  font-family: 'Emberly', sans-serif; 
+  letter-spacing: 2px;
+ }
+ .product_price label {
+  font-family: 'AritaBuri';
+    font-style: normal;
+    font-weight: 400;
+ }

@@ -34,7 +34,7 @@ public class MemberDAOTest {
 
 	// 회원가입
 	private void testInsert() {
-		MemberVO vo = new MemberVO(0, "test1", "1234", "test1", "01.01.01", "010-1234-1234", "test@test.com", "no", "3214", "Seoul","seoul", null, 0);
+		MemberVO vo = new MemberVO();
 		
 		int result = dao.insert(vo);
 		
@@ -70,7 +70,7 @@ public class MemberDAOTest {
 	
 	// 회원 정보 보기
 	private void testSelect() {
-		MemberVO vo = dao.select("test");
+		MemberVO vo = dao.select(1);
 		logger.info(vo.toString());
 	}
 

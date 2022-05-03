@@ -26,12 +26,6 @@ public class HelpController {
 	private HelpService helpService;
 
 	
-	// 고객센터 페이지 이동
-	@GetMapping("/help")
-	public void listPageGET() {
-		logger.info("listGET() Call");
-	}
-	
 
 
 	// 고객센터 글 목록(관리자 페이지)
@@ -125,8 +119,10 @@ public class HelpController {
 		logger.info("delete() 호출 : helpNo =" + helpNo);
 		int result = helpService.delete(helpNo);
 		if(result == 1) {
+			logger.info("update Success");
 			return "redirect:/admin/helpList";
 		} else {
+			logger.info("update fail");
 			return "redirect:/admin/helpDetail?helpNo=" + helpNo;
 		}
 	}

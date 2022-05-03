@@ -19,9 +19,20 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+			<param-value>
+				/WEB-INF/spring/appServlet/servlet-context.xml
+				/WEB-INF/spring/appServlet/security-context.xml
+			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		
+		<!-- 업로드 관련 설정 -->
+		<multipart-config>
+			<location>C:\\upload\\temp</location>		
+			<max-file-size>20971520</max-file-size>					<!-- 1MB * 20 -->
+			<max-request-size>41943040</max-request-size>			<!-- 40MB -->
+			<file-size-threshold>20971520</file-size-threshold>		<!-- 20MB -->
+		</multipart-config>
 	</servlet>
 	
 	<!-- 업로드 관련 설정 -->
@@ -36,12 +47,14 @@
 			 	설정된 값을 초과 한다면 <location>에 설정된 경로에 임시파일로 저장 
   	-->
   	<!-- WAS(Web Application Servce / Tomcat)에 대한 설정 -->
-	<multipart-config>
+	<!-- <multipart-config>
 		<location>/Users/da.witt/study/FileUploadTest</location>		
-		<max-file-size>20971520</max-file-size>					<!-- 1MB * 20 -->
-		<max-request-size>41943040</max-request-size>			<!-- 40MB -->
-		<file-size-threshold>20971520</file-size-threshold>		<!-- 20MB -->
-	</multipart-config>
+		<max-file-size>20971520</max-file-size>					1MB * 20
+		<max-request-size>41943040</max-request-size>			40MB
+		<file-size-threshold>20971520</file-size-threshold>		20MB
+	</multipart-config> -->
+	
+	
 	
 		
 	<servlet-mapping>
