@@ -1,0 +1,51 @@
+@charset "UTF-8";
+body{
+  background : black;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.p-1{
+    box-sizing: border-box;
+    border-bottom: 1px solid #dee2e6!important;
+    margin-bottom: 1rem!important;
+    padding: 1rem!important;
+}
+.d-flex {
+  display: flex !important;
+}
+.align-items-center {
+  align-items: center !important;
+}
+.nav {
+  display: flex;
+}
+/* 메뉴 영역 */
+.menu_gnb_area{
+  border: 1px solid red;
+  background: pink;
+  opacity: 50%;
+  position: absolute;
+}
+/* logo */
+.img_logo{
+  border : 1px solid red;
+  height : 60px;
+}
+
+/* video */
+#intro .bgMovie video#bgvid {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  background: url("resources/video/vd_bg.png") no-repeat center top;
+  background-size: cover;
+}

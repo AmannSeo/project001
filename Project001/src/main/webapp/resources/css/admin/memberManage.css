@@ -1,0 +1,21 @@
+@charset "UTF-8";
+.wrap{
+  clear :both;
+  position: relative;
+  width: 100%;
+}
+
+/* 왼쪽 영역 */
+.wrap_left{
+  float: left;
+  border: 1px solid red;
+}
+.wrap_left li{
+  list-style: none;
+}
+
+/* 오른쪽 영역 */
+.wrap_right{
+  float: right;
+  border: 1px solid red;
+}

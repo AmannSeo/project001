@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.spring.p01.MemberMapper">
+	
+	<!-- 회원가입 -->
+	<insert id="insert">
+		insert into ${pro01_member} (${memberId}, ${memberPw}, ${memberName}, ${memberBirth}, ${memberPhone}, ${memberMail}, ${memberMailAgree}, ${memberAdd01}, ${memberAdd02}, ${memberAdd03}, ${adminCk})
+			values (#{memberId}, #{memberPw}, #{memberName}, #{memberBirth}, #{memberPhone}, #{memberMail}, #{memberMailAgree}, #{memberAdd01}, #{memberAdd02}, #{memberAdd03}, 0)
+	</insert>
+	
+	<!-- 아이디 중복검사 -->
+	<select id="idCheck" resultType="int">
+		select count(*) from ${pro01_member} where ${memberId} = #{memberId}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="login" resultType="MemberVO">
+		select ${memberId}, ${memberName}, ${memberBirth}, ${memberPhone}, ${memberMail}, ${adminCk} from ${pro01_member} where ${memberId} = #{memberId} and ${memberPw} = #{memberPw}
+	</select>
+	
+	<!-- 회원정보 보기 -->
+	<select id="select_by_memberId" resultType="MemberVO">
+		select * from ${pro01_member}
+		where ${memberId} like #{memberId}
+	</select>
+
+</mapper>

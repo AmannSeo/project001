@@ -1,0 +1,97 @@
+@charset "UTF-8";
+/* 중복 아이디 없을 경우 */
+.idMsg_1{
+  color : green;
+  display: none;
+}
+
+/* 중복 아이디 있을 경우 */
+.idMsg_2{
+  color : red;
+  display: none;
+}
+
+
+/* 메일 인증 */
+#mail_check_input_box_false{
+    background-color:#ebebe4;
+}
+ 
+#mail_check_input_box_true{
+    background-color:white;
+}
+
+
+/* 인증번호의 일치 여부 */
+.correct{
+    color : green;
+}
+.incorrect{
+    color : red;
+}
+
+/* 유효성 검사 */
+.id_msg{
+  display: none;
+}
+
+.pw_msg{
+  display: none;
+}
+
+.pwck_msg{
+  display: none;  
+}
+
+.name_msg{
+  display: none; 
+}
+
+.birth_msg{
+  display: none; 
+}
+
+.phone_msg{
+  display: none; 
+}
+
+.mail_msg{
+  display: none; 
+}
+
+.add_msg{
+  display: none; 
+}
+
+/* 비밀번호 확인 일치 유효성 검사 */
+.pwck_msg_01{
+  color : green;
+  display : none;
+}
+
+.pwck_msg_02{
+  color : red;
+  display : none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

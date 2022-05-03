@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.spring.p01.HelpMapper">
+	<!-- DAOImple의 순서와 메소드 이름이 비슷하게 생성 꼭 인지 -->
+
+	<!-- 질문 작성 -->
+	<insert id="help_insert">
+	   insert into ${pro01_help} (${helpNo}, ${helpTitle}, ${helpName}, ${helpContent})
+	   values (#{helpNo}, #{helpTitle}, #{helpName}, #{helpContent})
+	</insert>
+	
+	<!-- 질문 전체 읽기 -->
+	<select id="help_read_all" resultType="HelpVO">
+	   select * from ${pro01_help}
+	   order by ${helpNo} desc
+	</select>
+	
+	<!-- 질문 보기 -->
+	<select id="help_select_no" resultType="HelpVO">
+	   select * from ${pro01_help} where ${helpNo} =#{helpNo}
+	</select>
+	
+	<!-- 질문 수정 -->
+	<update id="help_update">
+	   update ${pro01_help}
+	   set ${helpTitle} = #{helpTitle}, 
+		   ${helpName} = #{helpName}, 
+		   ${helpContent} = #{helpContent}
+	   where ${helpNo} = #{helpNo}
+	</update>
+	
+	<!-- 질문 삭제 -->
+	<delete id="help_delete">
+	   delete from ${pro01_help}
+	   where ${helpNo} = #{helpNo}
+	</delete>
+	
+	<!-- 질문 전체 불러오기 -->
+	<select id="help_select_all" resultType="HelpVO">  <!--페이징처리 -->
+	    select b.${helpNo}, b.${helpTitle}, b.${helpName}, b.${hlepContent}, b.${helpRegDate} from(
+	          select rownum rn, a.* from(
+	            select * from ${pro01_help} order by ${helpNo} desc
+	          )a
+	    )b where rn between #{start} and #{end}
+	</select>
+	
+	
+	<!-- 질문 총 개수 -->
+	<select id="help_total_count" resultType="Integer">
+	<![CDATA[
+	     select count(*) from ${pro01_product}
+    ]]>
+	     <if test="keyword != null">
+	     	 where product_name like '%' || #{keyword} || '%'
+     	</if>
+	</select>
+	
+	 
+	 <select id="select_by_title_content" resultType = "HelpVO">
+	       select * from ${pro01_help}
+	       where ${title} like #{keyword} or
+	             ${content} like #{keyword}
+	             order by #{helpNo} desc
+	 </select>
+	
+	
+
+</mapper>

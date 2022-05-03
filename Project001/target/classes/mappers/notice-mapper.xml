@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.spring.p01.NoticeMapper">
+	<!-- DAOImple의 순서와 메소드 이름이 비슷하게 생성 꼭 인지 -->
+
+	<!-- 질문 작성 -->
+	<insert id="notice_insert">
+	   insert into ${pro01_notice} (${noticeNo}, ${noticeTitle}, ${noticeName}, ${noticeContent})
+	   values (#{noticeNo}, #{noticeTitle}, #{noticeName}, #{noticeContent})
+	</insert>
+	
+	<!-- 질문 전체 읽기 -->
+	<select id="notice_read_all" resultType="NoticeVO">
+	   select * from ${pro01_notice}
+	   order by ${noticeNo} desc
+	</select>
+	
+	<!-- 질문 보기 -->
+	<select id="notice_select_no" resultType="NoticeVO">
+	   select * from ${pro01_notice} where ${noticeNo} =#{noticeNo}
+	</select>
+	
+	<!-- 질문 수정 -->
+	<update id="notice_update">
+	   update ${pro01_notice}
+	   set ${noticeTitle} = #{noticeTitle}, 
+		   ${noticeName} = #{noticeName}, 
+		   ${noticeContent} = #{noticeContent}
+	   where ${noticeNo} = #{noticeNo}
+	</update>
+	
+	<!-- 질문 삭제 -->
+	<delete id="notice_delete">
+	   delete from ${pro01_notice}
+	   where ${noticeNo} = #{noticeNo}
+	</delete>
+	
+	<!-- 질문 전체 불러오기 -->
+	<select id="notice_select_all" resultType="NoticeVO">  <!--페이징처리 -->
+	    select b.${noticeNo}, b.${noticeTitle}, b.${noticeName}, b.${noticeContent}, b.${noticeRegDate} from(
+	          select rownum rn, a.* from(
+	            select * from ${pro01_notice} order by ${noticeNo} desc
+	          )a
+	    )b where rn between #{start} and #{end}
+	</select>
+	
+	
+	<!-- 질문 총 개수 -->
+	<select id="notice_total_count" resultType="Integer">
+	<![CDATA[
+	     select count(*) from ${pro01_product}
+    ]]>
+	     <if test="keyword != null">
+	     	 where product_name like '%' || #{keyword} || '%'
+     	</if>
+	</select>
+	
+	 
+	 <select id="select_by_title_content" resultType = "noticeVO">
+	       select * from ${pro01_notice}
+	       where ${title} like #{keyword} or
+	             ${content} like #{keyword}
+	             order by #{noticeNo} desc
+	 </select>
+	
+	
+
+</mapper>

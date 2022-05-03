@@ -1,0 +1,9 @@
+@charset "UTF-8";
+/* 입력 경고 */
+.form_section_content span{    
+    display: none;
+    padding-top: 10px;
+    text-align: center;
+    color: red;
+    font-size: 1rem;
+}
