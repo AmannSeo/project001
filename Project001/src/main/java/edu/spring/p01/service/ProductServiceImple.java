@@ -12,8 +12,10 @@ import edu.spring.p01.domain.ProductVO;
 import edu.spring.p01.pageutil.PageCriteria;
 import edu.spring.p01.persistence.ProductDAO;
 import edu.spring.p01.persistence.ProductDAOImple;
+import lombok.extern.log4j.Log4j;
 
 @Service
+@Log4j
 public class ProductServiceImple implements ProductService{
 	private static final Logger logger =
 			LoggerFactory.getLogger(ProductServiceImple.class);
@@ -25,9 +27,6 @@ public class ProductServiceImple implements ProductService{
 	@Override
 	public List<ProductVO> getProductList(PageCriteria criteria) {
 		logger.info("getProductList() Call >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-		
-		String type = criteria.getType();
-		String[] typeArr = type.split("");
 		
 		return dao.getProductList(criteria);
 	}

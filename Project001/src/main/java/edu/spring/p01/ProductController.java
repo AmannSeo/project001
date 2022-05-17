@@ -136,11 +136,12 @@ public class ProductController {
 	
 	/* 상품 검색 */
 	@GetMapping("search")
-	public String searchProductGet(PageCriteria cir, Model model) {
+	public String searchProductGet(PageCriteria cri, Model model) {
 		
 		logger.info("searchProductGet() Call >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		logger.info("cri : " + cri);
 		
-		List<ProductVO> list = productService.getProductList(cir);
+		List<ProductVO> list = productService.getProductList(cri);
 		
 		logger.info("pre list : " + list);
 		logger.info("==========================================================");
@@ -154,7 +155,8 @@ public class ProductController {
 			return "search";
 		}
 		
-		model.addAttribute("pageMaker", new PageDTO(cir, productService.productGetTotal(cir)));
+		model.addAttribute("pageMaker", new PageDTO(cri, productService.productGetTotal(cri)));
+		
 		
 		return "search";
 	}

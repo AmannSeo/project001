@@ -30,13 +30,15 @@ public class NoticeDAOTest {
 	
 	@Test
 	public void testDAO() {
-		testHelpInsert();
+//		testHelpInsert();
 //		testHelpSelectAll();
 //		testHelpSelect();
 //		testHelpUpdate();
 //		testHelpDelete();
+//		testSearch();
 	}
 	
+
 	private void testHelpInsert() {
 		NoticeVO notice = new NoticeVO(0, "test1", "test1", "test1", null);
 		int result = dao.insert(notice);

@@ -60,11 +60,46 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 
 	 <select id="select_by_title_content" resultType = "noticeVO">
 	       select * from ${pro01_notice}
-	       where ${title} like #{keyword} or
-	             ${content} like #{keyword}
+	       where ${noticeTitle} like #{keyword} or
+	             ${noticeContent} like #{keyword}
 	             order by #{noticeNo} desc
 	 </select>
 	
-	
+	<select id="getListWithPaging" resultType="noticeVO">
+		<![CDATA[
+		select
+			notice_no, notice_title, notice_name, notice_content, notice_reg_date
+				from(
+					select /* +INDEX_DESC(pro01_notice pk_notice) */
+						rownum rn, notice_no, notice_title, notice_name, notice_content, notice_reg_date
+					from
+						pro01_notice
+					where
+		]]>
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T' toString()">
+							notice_title '%' ||#{keyword}|| '%'
+						</when>
+						<when test="type == 'C' toString()">
+							notice_content '%' ||#{keyword}|| '%'
+						</when>
+						<when test="type == 'N' toString()">
+							notice_name '%' ||#{keyword}|| '%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+		
+		<![CDATA[
+			rownum <= #{pageNum} * #{amount}
+			)
+		where rn > (#{pageNum} -1) * #{amount}
+		]]>
+		
+	</select>
 
 </mapper>

@@ -48,14 +48,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	
 	<!-- 상품 총 개수 -->
 	<select id="productGetTotal" resultType="Integer">
 	
 		select count(*) from pro01_product
 		where
 		<include refid="criteria"></include> 
-		product_no >0
+		product_name >0
 		
 	</select>
 	

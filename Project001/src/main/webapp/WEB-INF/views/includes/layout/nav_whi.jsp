@@ -104,11 +104,16 @@
       <div class="search_wrap">
           <form id="searchForm" action="/search" method="get">
             <div class="search_input">
+              <div style="display:none;">
+                <select name="type">
+                  <option value="T">제품명</option>
+                </select>
+              </div>
               <input type="text" name="keyword">
                 <button class='btn search_btn'>검 색</button>                       
             </div>
           </form>
-        </div>
+      </div>
       
 
       <div class="login_wrap">
