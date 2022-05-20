@@ -50,22 +50,53 @@ public class ProductDAOImple implements ProductDAO{
 		return sqlSession.selectOne(NAMESPACE + ".getProductInfo", productNo);
 	}
 
+	// FINE FRAGRANCES
 	@Override
-	public List<ProductVO> getCateCode1() {
+	public List<ProductVO> getCateCode1_1() {
 		logger.info("FACE FRAGRANCES() Call");
-		return sqlSession.selectList(NAMESPACE + ".getCateCode1");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode1_1");
+	}
+	public List<ProductVO> getCateCode1_2() {
+		logger.info("FACE FRAGRANCES() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode1_2");
+	}
+	public List<ProductVO> getCateCode1_3() {
+		logger.info("FACE FRAGRANCES() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode1_3");
 	}
 
+	// HOME CREATIONS
 	@Override
-	public List<ProductVO> getCateCode2() {
+	public List<ProductVO> getCateCode2_1() {
 		logger.info("HOME CREATIONS() Call");
-		return sqlSession.selectList(NAMESPACE + ".getCateCode2");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode2_1");
+	}
+	public List<ProductVO> getCateCode2_2() {
+		logger.info("HOME CREATIONS() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode2_2");
+	}
+	public List<ProductVO> getCateCode2_3() {
+		logger.info("HOME CREATIONS() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode2_3");
 	}
 
+	// BODY-HAIR-FACE
 	@Override
-	public List<ProductVO> getCateCode3() {
+	public List<ProductVO> getCateCode3_1() {
 		logger.info("BODAY-HAIR-FACE() Call");
-		return sqlSession.selectList(NAMESPACE + ".getCateCode3");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode3_1");
+	}
+	public List<ProductVO> getCateCode3_2() {
+		logger.info("BODAY-HAIR-FACE() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode3_2");
+	}
+	public List<ProductVO> getCateCode3_3() {
+		logger.info("BODAY-HAIR-FACE() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode3_3");
+	}
+	public List<ProductVO> getCateCode3_4() {
+		logger.info("BODAY-HAIR-FACE() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode3_4");
 	}
 
 	

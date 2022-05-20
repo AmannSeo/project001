@@ -76,15 +76,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- FINE FRAGRANCES -->
-	<select id="getCateCode1" resultType="CateVO">
+	<select id="getCateCode1_1" resultType="CateVO">
 	
 		<![CDATA[
-			select * from PRO01_CATEGORY where cate_code > 100000 and cate_code < 200000
+			select * from PRO01_CATEGORY where cate_code > 101000 and cate_code < 101010
+		]]>
+	</select>
+	<select id="getCateCode1_2" resultType="CateVO">
+	
+		<![CDATA[
+			select * from PRO01_CATEGORY where cate_code > 101010 and cate_code < 102000
+		]]>
+	</select>
+	<select id="getCateCode1_3" resultType="CateVO">
+	
+		<![CDATA[
+			select * from PRO01_CATEGORY where cate_code > 101018 and cate_code < 200000
 		]]>
 	</select>
 	
 	<!-- HOME CREATIONS -->
-	<select id="getCateCode2" resultType="CateVO">
+	<select id="getCateCode2_1" resultType="CateVO">
+	
+		<![CDATA[
+			select * from PRO01_CATEGORY where cate_code > 200000 and cate_code < 300000
+		]]>
+	</select>
+	<select id="getCateCode2_2" resultType="CateVO">
+	
+		<![CDATA[
+			select * from PRO01_CATEGORY where cate_code > 200000 and cate_code < 300000
+		]]>
+	</select>
+	<select id="getCateCode2_3" resultType="CateVO">
 	
 		<![CDATA[
 			select * from PRO01_CATEGORY where cate_code > 200000 and cate_code < 300000
@@ -92,7 +116,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- BODY-HAIR-FACE -->
-	<select id="getCateCode3" resultType="CateVO">
+	<select id="getCateCode3_1" resultType="CateVO">
+	
+		<![CDATA[
+			select * from PRO01_CATEGORY where cate_code > 300000 and cate_code < 400000
+		]]>
+	</select>
+	<select id="getCateCode3_2" resultType="CateVO">
+	
+		<![CDATA[
+			select * from PRO01_CATEGORY where cate_code > 300000 and cate_code < 400000
+		]]>
+	</select>
+	<select id="getCateCode3_3" resultType="CateVO">
+	
+		<![CDATA[
+			select * from PRO01_CATEGORY where cate_code > 300000 and cate_code < 400000
+		]]>
+	</select>
+	<select id="getCateCode3_4" resultType="CateVO">
 	
 		<![CDATA[
 			select * from PRO01_CATEGORY where cate_code > 300000 and cate_code < 400000

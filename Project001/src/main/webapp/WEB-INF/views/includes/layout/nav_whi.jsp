@@ -94,7 +94,7 @@
         <img class="img_logo" src="resources/imgs/logo_whi.png">
       </a>
       
-      <!-- 
+      
       <div class="navi_bar_area">
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
          <li class="nav-item dropdown">
@@ -107,7 +107,10 @@
                 </div>
                 <div class="dropdown-content-nav">
                   <ul>
-                    <li><a href="#">THE MATCHA 26</a></li>
+                    <c:forEach items="${cate1_1}" var="cate"> 
+                      <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
+                    </c:forEach>
+                    <!-- <li><a href="#">THE MATCHA 26</a></li>
                     <li><a href="#">SANTAL 33</a></li>
                     <li><a href="#">ANOTHER 13</a></li>
                     <li><a href="#">THE NOIR 29</a></li>
@@ -116,10 +119,13 @@
                     <li><a href="#">BAIE 19</a></li>
                     <li><a href="#">LYS 41</a></li>
                     <li><a href="#">TONKA 25</a></li>
-                    <li><a href="#">NEROLI 36</a></li>
+                    <li><a href="#">NEROLI 36</a></li> -->
                   </ul>
                   <ul>
-                    <li><a href="#">YLANG 46</a></li>
+                    <c:forEach items="${cate1_2}" var="cate"> 
+                      <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
+                    </c:forEach>
+                    <!-- <li><a href="#">YLANG 46</a></li>
                     <li><a href="#">FLEUR D'ORANGER 27</a></li>
                     <li><a href="#">PATCHOULI 24</a></li>
                     <li><a href="#">LABDANUM 18</a></li>
@@ -127,7 +133,7 @@
                     <li><a href="#">VETIVER 46</a></li>
                     <li><a href="#">AMBRETTE 9</a></li>
                     <li><a href="#">IRIS 39</a></li>
-                    <li><a href="#">OUD 27</a></li>
+                    <li><a href="#">OUD 27</a></li> -->
                   </ul>
                 </div>
               </div>
@@ -271,57 +277,39 @@
          </li>
         </ul>
       </div>
-       -->
-
-<!-- 
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/product/index" class="nav-link px-2 menu_channel">PRODUCTS</a></li>
-          <li class="nav-item dropdown">
-            <a href="/fine-fragrances" class="nav-link px-2 dropdown-toggle menu_channel" data-bs-toggle="dropdown" aria-expanded="false">FINE FRAGRANCES</a>
-            <ul class="dropdown-menu" aria-labelledby="dropdown04">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-            </ul>
-          </li>
-          <li><a href="#" class="nav-link px-2 menu_channel">HOME CREATIONS</a></li>
-          <li><a href="#" class="nav-link px-2 menu_channel">BODY - HAIR - FACE</a></li>
-          <li><a href="#" class="nav-link px-2 menu_channel">ABOUT US</a></li>
-          <li><a href="/help" class="nav-link px-2 menu_channel">FAQ</a></li>
-        </ul>
- -->      
- 
+      
+      <%-- 
       <div class="navi_bar_area">
-        <div class="dropdown">
-          <button class="dropbtn">FINE FRAGRANCES
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <c:forEach items="${cate1}" var="cate"> 
-              <a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
-            </c:forEach>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">HOME CREATIONS
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <c:forEach items="${cate2}" var="cate"> 
-              <a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
-            </c:forEach>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">BODY - HAIR - FACE
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <c:forEach items="${cate3}" var="cate"> 
-              <a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
-            </c:forEach>
-          </div>
-        </div>
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li class="nav-item dropdown">
+            <div class="dropdown">
+              <a href="/fine-fragrances" class="nav-link px-2 dropdown-toggle menu_channel">FINE FRAGRANCES</a>
+              <div class="dropdown-content">
+                <c:forEach items="${cate1}" var="cate"> 
+                  <a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
+                </c:forEach>
+              </div>
+            </div>
+            <div class="dropdown">
+              <a href="/home-creations" class="nav-link px-2 dropdown-toggle menu_channel">HOME CREATIONS</a>
+              <div class="dropdown-content">
+                <c:forEach items="${cate2}" var="cate"> 
+                  <a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
+                </c:forEach>
+              </div>
+            </div>
+            <div class="dropdown">
+              <a href="/body-hair-face" class="nav-link px-2 dropdown-toggle menu_channel">BODY - HAIR - FACE</a>
+              <div class="dropdown-content">
+                <c:forEach items="${cate3}" var="cate"> 
+                  <a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
+                </c:forEach>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
+       --%>
       
       <div class="search_wrap">
           <form id="searchForm" action="/search" method="get">

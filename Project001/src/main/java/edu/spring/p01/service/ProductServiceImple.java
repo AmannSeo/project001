@@ -59,22 +59,60 @@ public class ProductServiceImple implements ProductService{
 		return dao.list(cateCode);
 	}
 
+	// FINE FRAGRANCES
 	@Override
-	public List<ProductVO> getCateCode1() {
+	public List<ProductVO> getCateCode1_1() {
 		logger.info("FACE FRAGRANCES() Call");
-		return dao.getCateCode1();
+		return dao.getCateCode1_1();
+	}
+	@Override
+	public List<ProductVO> getCateCode1_2() {
+		logger.info("FACE FRAGRANCES() Call");
+		return dao.getCateCode1_2();
+	}
+	@Override
+	public List<ProductVO> getCateCode1_3() {
+		logger.info("FACE FRAGRANCES() Call");
+		return dao.getCateCode1_3();
 	}
 
+	// HOME CREATIONS
 	@Override
-	public List<ProductVO> getCateCode2() {
+	public List<ProductVO> getCateCode2_1() {
 		logger.info("HOME CREATIONS() Call");
-		return dao.getCateCode2();
+		return dao.getCateCode2_1();
+	}
+	@Override
+	public List<ProductVO> getCateCode2_2() {
+		logger.info("HOME CREATIONS() Call");
+		return dao.getCateCode2_2();
+	}
+	@Override
+	public List<ProductVO> getCateCode2_3() {
+		logger.info("HOME CREATIONS() Call");
+		return dao.getCateCode2_3();
 	}
 
+	// BODY-HAIR-FACE
 	@Override
-	public List<ProductVO> getCateCode3() {
+	public List<ProductVO> getCateCode3_1() {
 		logger.info("BODY-HAIR-FACE() Call");
-		return dao.getCateCode3();
+		return dao.getCateCode3_1();
+	}
+	@Override
+	public List<ProductVO> getCateCode3_2() {
+		logger.info("BODY-HAIR-FACE() Call");
+		return dao.getCateCode3_2();
+	}
+	@Override
+	public List<ProductVO> getCateCode3_3() {
+		logger.info("BODY-HAIR-FACE() Call");
+		return dao.getCateCode3_3();
+	}
+	@Override
+	public List<ProductVO> getCateCode3_4() {
+		logger.info("BODY-HAIR-FACE() Call");
+		return dao.getCateCode3_4();
 	}
 
 	
