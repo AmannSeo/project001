@@ -504,6 +504,9 @@ p{
 }
 
 /* part_06 */
+.part_06_products {
+  padding-bottom: 120px;
+}
 
 .part_06_title {
   text-align: center;

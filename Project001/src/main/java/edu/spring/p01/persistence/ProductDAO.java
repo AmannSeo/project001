@@ -18,6 +18,14 @@ public interface ProductDAO {
 	// 상품 정보
 	ProductVO getProductInfo(int productNo);
 
+	// FINE FRAGRANCES
+	List<ProductVO> getCateCode1();
+	
+	// HOME CREATIONS
+	List<ProductVO> getCateCode2();
+	
+	// BODY-HAIR-FACE
+	List<ProductVO> getCateCode3();
 }
 
 

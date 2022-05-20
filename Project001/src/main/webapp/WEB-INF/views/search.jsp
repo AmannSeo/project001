@@ -17,7 +17,9 @@
    
 
     <!-- main/css -->
+    <link rel="stylesheet" href="resources/css/main.css">  
     <link rel="stylesheet" href="resources/css/search.css">  
+    
 <style type="text/css">
  .card-body a {
   text-decoration: none;
@@ -34,36 +36,108 @@
 <!-- nav -->
 <%@include file="includes/layout/nav_blk.jsp" %>
 
-    
-       
-    
-    <%-- <div class="album py-5 bg-light">
-    <div class="container" style="display: flow-root;">
-    <c:forEach var="list" items="${list }">
-        <div class="col product_card">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-            <div class="card-body">
-              <h4><a href="product/detail?productNo=${list.productNo }&page=${pageMaker.criteria.page}"><c:out value="${list.productName }"></c:out></a></h4>
-              <p class="card-text">${list.productIntro }</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <label><fmt:formatNumber value="${list.productPrice}" pattern="#,###,### 원" /></label>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </c:forEach>
-    </div>
-  </div> --%>
   
-  <h1>Searching</h1>
-  <div>${list }</div>
-  <div>${pageMaker }</div>
+  <div class="content_area">
+  	<!-- 게시물 o -->
+	<c:if test="${listCheck != 'empty'}">
+  
+    <div class="list_search_result">
+          <table class="type_list">
+            <colgroup>
+              <col width="110">
+              <col width="*">
+              <col width="120">
+              <col width="120">
+              <col width="120">
+            </colgroup>
+            <tbody id="searchList>">
+              <c:forEach items="${list}" var="list">
+                <tr>
+                  <td class="image">
+                    <div class="image_wrap" data-bookid="${list.imageList[0].productNo}" data-path="${list.imageList[0].uploadPath}" data-uuid="${list.imageList[0].uuid}" data-filename="${list.imageList[0].fileName}">
+                      <img>
+                    </div>
+                  </td>
+                  <td class="detail">
+                    <div class="category">
+                      ${list.cateName}
+                    </div>
+                    <div class="title">
+                      ${list.productName}
+                    </div>
+                  </td>
+                  <td class="price">
+                    <div class="org_price">
+                        ${list.productPrice}
+                    </div>
+                  </td>
+                  <td class="option"></td>
+                </tr>
+              </c:forEach>
+            </tbody>
+          
+          </table>
+        </div>
+	
+  
+      <!-- 페이징 -->
+      <div class="paging_num">
+        <ul class="pageMaker">
+          <c:if test="${pageMaker.hasPrev }"> <!-- 페이지에 이전이 있을경우에만 버튼을 만든다 -->
+            <li class="pageMaker_btn hasPrev">
+              <a href="productList?page=${pageMaker.startPageNo - 1 }">이전</a>
+            </li>
+          </c:if>
+        
+          <!-- 반복문에 시작과 끝이 있을 경우 -->
+          <c:forEach begin="${pageMaker.startPageNo }" 
+          end="${pageMaker.endPageNo }" var="num"> 
+            <li class="pageMaker_btn ${pageMaker.criteria.page == num ? "active":""}">
+              <a href="productList?page=${num }">${num }</a>
+            </li>
+          </c:forEach>
+          
+         
+          
+          <c:if test="${pageMaker.hasNext }">
+            <li class="pageMaker_btn hasNext">
+              <a href="productList?page=${pageMaker.endPageNo + 1 }">다음</a>
+            </li>
+          </c:if>
+        </ul>
+      </div>
+      
+      <form id="moveForm" action="/search" method="get" >
+          <input type="hidden" name="page" value="${pageMaker.criteria.page}">
+          <input type="hidden" name="numsPerPage" value="${pageMaker.criteria.numsPerPage}">
+          <input type="hidden" name="keyword" value="${pageMaker.criteria.keyword}">
+          <input type="hidden" name="type" value="${pageMaker.criteria.type}">
+        </form>
+  
+	</c:if>
+	<!-- 게시물 x -->
+	<c:if test="${listCheck == 'empty'}">
+		<div class="table_empty">
+			검색결과가 없습니다.
+		</div>
+	</c:if>
+  </div>
     
 </body>
+<script type="text/javascript">
+/* 페이지 이동 버튼 */
+const moveForm = $('#moveForm');
+
+$(".pageMaker_btn a").on("click", function(e){
+	
+	e.preventDefault();
+	
+	moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+	
+	moveForm.submit();
+	
+});
+</script>
 <!-- footer -->
 <%@include file="includes/admin/footer.jsp" %>
 </html>

@@ -17,6 +17,14 @@ public interface ProductService {
 	// 카테고리별 상품 리스트
 	List<ProductVO> list(String cateCode);
 	
+	// FINE FRAGRANCES
+	List<ProductVO> getCateCode1();
+	
+	// HOME CREATIONS
+	List<ProductVO> getCateCode2();
+	
+	// BODY-HAIR-FACE
+	List<ProductVO> getCateCode3();
 }
 
 

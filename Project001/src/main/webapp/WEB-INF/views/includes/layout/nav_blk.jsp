@@ -71,6 +71,21 @@
   background-color: gray;
   opacity: 100%;
 }
+#searchInput {
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 5px;  
+  color : black;
+}
+.nav-link {
+  color : black !important;
+}
+.dropdown-content a {
+  color : black;
+}
+.dropdown-part {
+  border-left: 1px solid black;
+}
 
 </style>
 
@@ -80,14 +95,183 @@
         <img class="img_logo" src="/resources/imgs/logo_blk.png">
       </a>
 
+      <div class="navi_bar_area">
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <!-- <li><a href="/product/index" class="nav-link px-2 link-dark">PRODUCTS</a></li> -->
-          <li><a href="/fine-fragrances" class="nav-link px-2 link-dark">FINE FRAGRANCES</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">HOME CREATIONS</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">BODY - HAIR - FACE</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">ABOUT US</a></li>
-          <li><a href="/help" class="nav-link px-2 link-dark">FAQ</a></li>
+         <li class="nav-item dropdown">
+          <div class="dropdown">
+            <a href="/fine-fragrances" class="nav-link px-2 dropdown-toggle menu_channel">FINE FRAGRANCES</a>
+            <div class="dropdown-content">
+              <div class="dropdown-part">
+                <div class="dropdown-content-sub">
+                  <a href="/fine-fragrances">Classic Collection</a>
+                </div>
+                <div class="dropdown-content-nav">
+                  <ul>
+                    <li><a href="#">THE MATCHA 26</a></li>
+                    <li><a href="#">SANTAL 33</a></li>
+                    <li><a href="#">ANOTHER 13</a></li>
+                    <li><a href="#">THE NOIR 29</a></li>
+                    <li><a href="#">ROSE 31</a></li>
+                    <li><a href="#">BERGAMOTE 22</a></li>
+                    <li><a href="#">BAIE 19</a></li>
+                    <li><a href="#">LYS 41</a></li>
+                    <li><a href="#">TONKA 25</a></li>
+                    <li><a href="#">NEROLI 36</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="#">YLANG 46</a></li>
+                    <li><a href="#">FLEUR D'ORANGER 27</a></li>
+                    <li><a href="#">PATCHOULI 24</a></li>
+                    <li><a href="#">LABDANUM 18</a></li>
+                    <li><a href="#">JASMIN 17</a></li>
+                    <li><a href="#">VETIVER 46</a></li>
+                    <li><a href="#">AMBRETTE 9</a></li>
+                    <li><a href="#">IRIS 39</a></li>
+                    <li><a href="#">OUD 27</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dropdown-part">
+                <div class="dropdown-content-sub">
+                  <a href="#">By Format</a>
+                </div>
+                <div class="dropdown-content-nav">
+                  <ul>
+                    <li><a href="#">EAU DE PARFUM</a></li>
+                    <li><a href="#">DISCOVERY</a></li>
+                    <li><a href="#">BODY LOTION</a></li>
+                    <li><a href="#">SHOWER GEL</a></li>
+                    <li><a href="#">BODY OIL</a></li>
+                    <li><a href="#">TRAVEL TUBES</a></li>
+                    <li><a href="#">LIQUID BALM</a></li>
+                    <li><a href="#">BODY BAR</a></li>
+                    <li><a href="#">DETERGENT</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+         </li>
+         <li class="nav-item dropdown">
+          <div class="dropdown">
+            <a href="/home-creations" class="nav-link px-2 dropdown-toggle menu_channel">HOME CREATIONS</a>
+            <div class="dropdown-content">
+            <div class="dropdown-part">
+              <div class="dropdown-content-sub">
+                <a href="#">Classic Collection</a>
+              </div>
+              <div class="dropdown-content-nav">
+                <ul>
+                  <li><a href="#">SANTAL 26</a></li>
+                  <li><a href="#">ENCENS 9</a></li>
+                  <li><a href="#">PALO SANTO 14</a></li>
+                  <li><a href="#">CALONE 17</a></li>
+                  <li><a href="#">FIGUE 15</a></li>
+                  <li><a href="#">LAURIER 62</a></li>
+                </ul>
+                <ul>
+                  <li><a href="#">PETIT GRAIN 21</a></li>
+                  <li><a href="#">CADE 26</a></li>
+                  <li><a href="#">PIN 12</a></li>
+                  <li><a href="#">VERVEINE 32</a></li>
+                  <li><a href="#">CEDRE 11</a></li>
+                  <li><a href="#">ANIS 24</a></li>
+                </ul>
+              </div>
+              </div>
+              <div class="dropdown-part">
+                <div class="dropdown-content-sub">
+                  <a href="#">By Format</a>
+                </div>
+                <div class="dropdown-content-nav">
+                  <ul>
+                    <li><a href="#">CLASSIC CANDLE</a></li>
+                    <li><a href="#">HOME FRAGRANCE</a></li>
+                    <li><a href="#">CONCRETE CANDLE</a></li>
+                    <li><a href="#">VOTIVES</a></li>
+                    <li><a href="#">DISCOVERY</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+         </li>
+         <li class="nav-item dropdown">
+          <div class="dropdown">
+            <a href="/body-hair-face" class="nav-link px-2 dropdown-toggle menu_channel">BODY - HAIR - FACE</a>
+            <div class="dropdown-content">
+              <div class="dropdown-part">
+                <div class="dropdown-content-sub">
+                  <a href="#">Body</a>
+                </div>
+                <div class="dropdown-content-nav">
+                  <ul>
+                    <li><a href="#">HAND SOAP</a></li>
+                    <li><a href="#">HAND LOTION</a></li>
+                    <li><a href="#">HAND POMADE</a></li>
+                    <li><a href="#">SHOWER GEL</a></li>
+                    <li><a href="#">SHOWER OIL</a></li>
+                    <li><a href="#">BODY CREAM</a></li>
+                    <li><a href="#">BODY SCRUB</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dropdown-part">
+                <div class="dropdown-content-sub">
+                  <a href="#">Hair</a>
+                </div>
+                <div class="dropdown-content-nav">
+                  <ul>
+                    <li><a href="#">SHAMPOO</a></li>
+                    <li><a href="#">CONDITIONER</a></li>
+                    <li><a href="#">HAIR MASK</a></li>
+                    <li><a href="#">SCRUB SHAMPOO</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dropdown-part">
+                <div class="dropdown-content-sub">
+                  <a href="#">Face</a>
+                </div>
+                <div class="dropdown-content-nav">
+                  <ul>
+                    <li><a href="#">FACE LOTION</a></li>
+                    <li><a href="#">FACIAL CLEANSING OIL</a></li>
+                    <li><a href="#">LIP BALM</a></li>
+                    <li><a href="#">FACE MASK</a></li>
+                    <li><a href="#">FACE SCRUB</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dropdown-part">
+                <div class="dropdown-content-sub">
+                  <a href="#">By Scent</a>
+                </div>
+                <div class="dropdown-content-nav">
+                  <ul>
+                    <li><a href="#">HINOKI</a></li>
+                    <li><a href="#">BASIL</a></li>
+                    <li><a href="#">MANDRIN</a></li>
+                    <li><a href="#">UNSCENTED</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+         </li>
+         <li class="nav-item dropdown">
+          <div class="dropdown">
+            <a href="/about-us" class="nav-link px-2 dropdown-toggle menu_channel">ABOUT US</a>
+          </div>
+         </li>
+         <li class="nav-item dropdown">
+          <div class="dropdown">
+            <a href="/help" class="nav-link px-2 dropdown-toggle menu_channel">FAQ</a>
+          </div>
+         </li>
         </ul>
+      </div>
+
         
         <div class="search_wrap">
           <form id="searchForm" action="/search" method="get">
@@ -97,20 +281,11 @@
                   <option value="T">제품명</option>
                 </select>
               </div>
-              <input type="text" name="keyword">
+              <input id="searchInput" type="text" name="keyword">
                 <button class='btn search_btn'>검 색</button>                       
             </div>
           </form>
       </div>
-        
-        <div class="search_wrap">
-          <form id="searchForm" action="/search" method="get">
-            <div class="search_input">
-              <input type="text" name="keyword">
-                <button class='btn search_btn'>검 색</button>                       
-            </div>
-          </form>
-        </div>
   
       <div class="login_wrap">
         <div class="not_login_part">
@@ -172,5 +347,34 @@
          }); // end btn_admin_page.click()
      }); // end document()
      
+     
+     /* 검색 */
+     $(document).ready(function(){
+ 		// 검색 타입 selected
+ 		const selectedType = '<c:out value="${pageMaker.criteria.type}"/>';
+ 		if(selectedType != ""){
+ 			$("select[name='type']").val(selectedType).attr("selected", "selected");	
+ 		}
+ 		
+ 		/* 이미지 삽입 */
+		$(".image_wrap").each(function(i, obj){
+			
+			const bobj = $(obj);
+			
+			if(bobj.data("productNo")) {
+    			const uploadPath = bobj.data("path");
+    			const uuid = bobj.data("uuid");
+    			const fileName = bobj.data("filename");
+    			
+    			const fileCallPath = encodeURIComponent(uploadPath + "/s_" + uuid + "_" + fileName);
+    			
+    			$(this).find("img").attr('src', '/display?fileName=' + fileCallPath);
+			} else {
+				$(this).find("img").attr('src', '/resources/imgs/noimg.png');
+			}
+			
+		});
+ 		
+	 });
      
   </script>

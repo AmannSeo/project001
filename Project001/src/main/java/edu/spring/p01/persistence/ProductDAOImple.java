@@ -50,6 +50,24 @@ public class ProductDAOImple implements ProductDAO{
 		return sqlSession.selectOne(NAMESPACE + ".getProductInfo", productNo);
 	}
 
+	@Override
+	public List<ProductVO> getCateCode1() {
+		logger.info("FACE FRAGRANCES() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode1");
+	}
+
+	@Override
+	public List<ProductVO> getCateCode2() {
+		logger.info("HOME CREATIONS() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode2");
+	}
+
+	@Override
+	public List<ProductVO> getCateCode3() {
+		logger.info("BODAY-HAIR-FACE() Call");
+		return sqlSession.selectList(NAMESPACE + ".getCateCode3");
+	}
+
 	
 	
 

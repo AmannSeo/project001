@@ -33,8 +33,12 @@ public class MainController {
 	
 	// main page
 	@RequestMapping(value= "/main", method = RequestMethod.GET)
-	public void mainPageGET() {
+	public void mainPageGET(Model model) {
 		logger.info("mainGET() Call");
+		
+		model.addAttribute("cate1", productService.getCateCode1());
+		model.addAttribute("cate2", productService.getCateCode2());
+		model.addAttribute("cate3", productService.getCateCode3());
 	}
 	
 	// fine-fragrances 페이지 이동

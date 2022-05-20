@@ -217,7 +217,7 @@
   
 </div>
 
-<div class="space_box" style="height: 480px"></div>
+<div class="space_box" style="height: 320px"></div>
 
 <!-- part_04 -->
 <div class="part_04">
@@ -419,7 +419,7 @@
   </div>
 </div>
 
-<div class="space_box" style="height: 480px"></div>
+<div class="space_box" style="height: 280px"></div>
 
 <!-- part_06 -->
 <div class="part_06">
