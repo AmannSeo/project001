@@ -17,6 +17,9 @@ public interface ProductService {
 	// 카테고리별 상품 리스트
 	List<ProductVO> list(String cateCode);
 	
+	// 상품 정보
+	ProductVO getProductInfo(int productNo);
+	
 	// FINE FRAGRANCES
 	List<ProductVO> getCateCode1_1();
 	List<ProductVO> getCateCode1_2();

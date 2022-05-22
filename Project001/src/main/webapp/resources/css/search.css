@@ -12,7 +12,7 @@
 }
 
 /* 상품 표 */
-.list_search_result{
+/* .list_search_result{
 	width: 90%;
     margin: auto;	
 }
@@ -37,9 +37,6 @@
     color: #3a60df;
     font-weight: 700;
 }
-.author{
-	font-size: 14px;
-}
 .info{
 	text-align: center;
 }
@@ -48,11 +45,8 @@
 }
 .org_price del{
 	font-size: 13px;
-}
-.sell_price strong{
-	color: #da6262;
-  	font-size: 18px;
-}
+} */
+
 
 /* 페이지 버튼 인터페이스 */
 .pageMaker_wrap{
@@ -94,7 +88,7 @@
     height: 100%;
 }	
 .image_wrap img {
-    max-width: 85%;
+    max-width: 100%;
     height: auto;
     display: block;
 }

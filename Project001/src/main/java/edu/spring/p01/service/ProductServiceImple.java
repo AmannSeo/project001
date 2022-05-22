@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import edu.spring.p01.domain.AttachImageVO;
 import edu.spring.p01.domain.ProductVO;
 import edu.spring.p01.pageutil.PageCriteria;
+import edu.spring.p01.persistence.AdminDAO;
 import edu.spring.p01.persistence.AttachDAO;
 import edu.spring.p01.persistence.ProductDAO;
 import edu.spring.p01.persistence.ProductDAOImple;
@@ -27,6 +28,9 @@ public class ProductServiceImple implements ProductService{
 	
 	@Autowired
 	private AttachDAO attachDao;
+	
+	@Autowired
+	private AdminDAO adminDao;
 
 	// 상품 검색(상품명)
 	@Override
@@ -113,6 +117,16 @@ public class ProductServiceImple implements ProductService{
 	public List<ProductVO> getCateCode3_4() {
 		logger.info("BODY-HAIR-FACE() Call");
 		return dao.getCateCode3_4();
+	}
+
+	/* 상품 정보 */
+	@Override
+	public ProductVO getProductInfo(int productNo) {
+		
+		ProductVO productInfo = dao.getProductInfo(productNo);
+		productInfo.setImageList(adminDao.getAttchInfo(productNo));
+		
+		return productInfo;
 	}
 
 	

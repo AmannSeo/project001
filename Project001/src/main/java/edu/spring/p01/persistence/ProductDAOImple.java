@@ -83,19 +83,19 @@ public class ProductDAOImple implements ProductDAO{
 	// BODY-HAIR-FACE
 	@Override
 	public List<ProductVO> getCateCode3_1() {
-		logger.info("BODAY-HAIR-FACE() Call");
+		logger.info("BODY-HAIR-FACE() Call");
 		return sqlSession.selectList(NAMESPACE + ".getCateCode3_1");
 	}
 	public List<ProductVO> getCateCode3_2() {
-		logger.info("BODAY-HAIR-FACE() Call");
+		logger.info("BODY-HAIR-FACE() Call");
 		return sqlSession.selectList(NAMESPACE + ".getCateCode3_2");
 	}
 	public List<ProductVO> getCateCode3_3() {
-		logger.info("BODAY-HAIR-FACE() Call");
+		logger.info("BODY-HAIR-FACE() Call");
 		return sqlSession.selectList(NAMESPACE + ".getCateCode3_3");
 	}
 	public List<ProductVO> getCateCode3_4() {
-		logger.info("BODAY-HAIR-FACE() Call");
+		logger.info("BODY-HAIR-FACE() Call");
 		return sqlSession.selectList(NAMESPACE + ".getCateCode3_4");
 	}
 

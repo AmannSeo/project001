@@ -40,45 +40,76 @@
   <div class="content_area">
   	<!-- 게시물 o -->
 	<c:if test="${listCheck != 'empty'}">
-  
-    <div class="list_search_result">
-          <table class="type_list">
-            <colgroup>
-              <col width="110">
-              <col width="*">
-              <col width="120">
-              <col width="120">
-              <col width="120">
-            </colgroup>
-            <tbody id="searchList>">
-              <c:forEach items="${list}" var="list">
-                <tr>
-                  <td class="image">
-                    <div class="image_wrap" data-bookid="${list.imageList[0].productNo}" data-path="${list.imageList[0].uploadPath}" data-uuid="${list.imageList[0].uuid}" data-filename="${list.imageList[0].fileName}">
-                      <img>
-                    </div>
-                  </td>
-                  <td class="detail">
-                    <div class="category">
-                      ${list.cateName}
-                    </div>
-                    <div class="title">
-                      ${list.productName}
-                    </div>
-                  </td>
-                  <td class="price">
-                    <div class="org_price">
-                        ${list.productPrice}
-                    </div>
-                  </td>
-                  <td class="option"></td>
-                </tr>
-              </c:forEach>
-            </tbody>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <%-- 
+              <table class="type_list">
+                <colgroup>
+                  <col width="110">
+                  <col width="*">
+                  <col width="120">
+                  <col width="120">
+                  <col width="120">
+                </colgroup>
+                <tbody id="searchList>">
+                  <c:forEach items="${list}" var="list">
+                    <tr>
+                      <td class="image">
+                        <div class="image_wrap" data-bookid="${list.imageList[0].productNo}" data-path="${list.imageList[0].uploadPath}" data-uuid="${list.imageList[0].uuid}" data-filename="${list.imageList[0].fileName}">
+                          <img>
+                        </div>
+                      </td>
+                      <td class="detail">
+                        <div class="category">
+                          ${list.cateName}
+                        </div>
+                        <div class="title">
+                          ${list.productName}
+                        </div>
+                      </td>
+                      <td class="price">
+                        <div class="org_price">
+                            ${list.productPrice}
+                        </div>
+                      </td>
+                      <td class="option"></td>
+                    </tr>
+                  </c:forEach>
+                </tbody>
+              </table>
+                 --%>
+                 
+                <c:forEach items="${list}" var="list">
+                  <div class="col">
+                    <div class="card shadow-sm">
+                      <div class="image_wrap bd-placeholder-img card-img-top" data-bookid="${list.imageList[0].productNo}" data-path="${list.imageList[0].uploadPath}" data-uuid="${list.imageList[0].uuid}" data-filename="${list.imageList[0].fileName}">
+                          <img>
+                      </div>
           
-          </table>
-        </div>
-	
+                      <div class="card-body">
+                        <div class="category">
+                          ${list.cateName}
+                        </div>
+                        <div class="title">
+                          <a href="/detail/${list.productName}">
+                            ${list.productName}
+                          </a>
+                        </div>
+                        <div class="price">
+                            ${list.productPrice}
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Cart</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </c:forEach>
+          </div>
+	 </div>
   
       <!-- 페이징 -->
       <div class="paging_num">
@@ -108,11 +139,12 @@
       </div>
       
       <form id="moveForm" action="/search" method="get" >
-          <input type="hidden" name="page" value="${pageMaker.criteria.page}">
-          <input type="hidden" name="numsPerPage" value="${pageMaker.criteria.numsPerPage}">
-          <input type="hidden" name="keyword" value="${pageMaker.criteria.keyword}">
-          <input type="hidden" name="type" value="${pageMaker.criteria.type}">
-        </form>
+        <input type="hidden" name="page" value="${pageMaker.criteria.page}">
+        <input type="hidden" name="numsPerPage" value="${pageMaker.criteria.numsPerPage}">
+        <input type="hidden" name="keyword" value="${pageMaker.criteria.keyword}">
+        <input type="hidden" name="cateCode" value="<c:out value="${pageMaker.criteria.cateCode}"/>">
+        <input type="hidden" name="type" value="${pageMaker.criteria.type}">
+      </form>
   
 	</c:if>
 	<!-- 게시물 x -->

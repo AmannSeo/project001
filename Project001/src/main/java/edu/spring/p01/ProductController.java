@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.spring.p01.domain.AttachImageVO;
@@ -116,16 +117,16 @@ public class ProductController {
 	}
 	
 	/* 상품 상세 */
-	@GetMapping("/detail")
-	public void detailGET(Model model, Integer productNo, Integer page) throws Exception {
+	@GetMapping("/detail/{productNo}")
+	public String detailGET(@PathVariable("productNo")int productNo, Model model) throws Exception {
+		
 		logger.info("detailGET() Call : productNo : " + productNo);
-		ProductVO product = adminService.read(productNo);
 		
 		// 상품 정보
-		model.addAttribute("product", product);
+		model.addAttribute("productInfo", productService.getProductInfo(productNo));
 		
-		// 상품 정보 페이지
-		model.addAttribute("page", page);
+		return "/detail";
+		
 	}
 	
 	// 회원 구매내역
