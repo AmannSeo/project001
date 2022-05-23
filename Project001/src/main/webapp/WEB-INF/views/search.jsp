@@ -91,7 +91,7 @@
                           ${list.cateName}
                         </div>
                         <div class="title">
-                          <a href="/detail/${list.productName}">
+                          <a href="/product/detail/${list.productNo}">
                             ${list.productName}
                           </a>
                         </div>
@@ -169,6 +169,8 @@ $(".pageMaker_btn a").on("click", function(e){
 	moveForm.submit();
 	
 });
+
+
 </script>
 <!-- footer -->
 <%@include file="includes/admin/footer.jsp" %>

@@ -29,44 +29,45 @@ public class ProductDaoTest {
 	 * dao.imageEnroll(vo); }
 	 */
 	
-	
-	  @Test 
-	  public void getGoodsListTest() {
-	  
-	  PageCriteria cri = new PageCriteria(); 
-	  String type = "T"; // String keyword =
-	  String keyword = "없음"; String catecode = "";
-	  
-	  System.out.println("=================================");
-	  
-	  cri.setType(type); cri.setKeyword(keyword); cri.setCateCode(catecode);
-	  List<ProductVO> list = dao.getProductList(cri);
-	  
-	  System.out.println("=================================");
-	  System.out.println("cri : " + cri); System.out.println("list : " + list);
-	  
-	  }
-	 
-
+	/*
+	 * @Test public void getGoodsListTest() {
+	 * 
+	 * PageCriteria cri = new PageCriteria(); String type = "T"; // String keyword =
+	 * String keyword = "없음"; String catecode = "";
+	 * 
+	 * System.out.println("=================================");
+	 * 
+	 * cri.setType(type); cri.setKeyword(keyword); cri.setCateCode(catecode);
+	 * List<ProductVO> list = dao.getProductList(cri);
+	 * 
+	 * System.out.println("=================================");
+	 * System.out.println("cri : " + cri); System.out.println("list : " + list);
+	 * 
+	 * }
+	 * 
+	 * 
+	 * @Test public void getGoodsListTest2() {
+	 * 
+	 * PageCriteria cri = new PageCriteria(); String type = "TC"; String keyword =
+	 * "none"; String catecode = "101001";
+	 * 
+	 * System.out.println("=================================");
+	 * 
+	 * cri.setType(type); cri.setKeyword(keyword); cri.setCateCode(catecode);
+	 * List<ProductVO> list = dao.getProductList(cri);
+	 * 
+	 * System.out.println("=================================");
+	 * System.out.println("cri : " + cri); System.out.println("list : " + list);
+	 * 
+	 * }
+	 */
 	@Test
-	public void getGoodsListTest2() {
-		
-		PageCriteria cri = new PageCriteria();
-		String type = "TC";
-		String keyword = "none";
-		String catecode = "101001";
-		
+	public void getGoodsInfo() {
+		int productNo = 2;
+		ProductVO productInfo = dao.getProductInfo(productNo);
 		System.out.println("=================================");
-		
-		cri.setType(type);
-		cri.setKeyword(keyword);
-		cri.setCateCode(catecode);
-		List<ProductVO> list = dao.getProductList(cri);
-		
+		System.out.println(productInfo);
 		System.out.println("=================================");
-		System.out.println("cri : " + cri);
-		System.out.println("list : " + list);
-		
 	}
 	
 }

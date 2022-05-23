@@ -31,9 +31,11 @@
 
 <div class="container detail_part">
   <!-- 이미지 영역 -->
-  <div class="img_part">
-    <img style="width: -webkit-fill-available;" src="/resources${product.productImg }">
-  </div>
+  <div class="ct_left_area">
+	<div class="image_wrap" data-bookid="${goodsInfo.imageList[0].productNo}" data-path="${goodsInfo.imageList[0].uploadPath}" data-uuid="${goodsInfo.imageList[0].uuid}" data-filename="${goodsInfo.imageList[0].fileName}">
+		<img>
+	</div>				
+</div>
   
   <!-- 정보 -->
   <div class="img_part">
@@ -88,6 +90,22 @@
 	    $("#resultPrice").val(totalPrice);
 	  });
 	});
+ 	
+ 	
+ 	/* 이미지 삽입 */
+ 	const bobj = $(".image_wrap");
+
+ 	if(bobj.data("productNo")){
+ 		const uploadPath = bobj.data("path");
+ 		const uuid = bobj.data("uuid");
+ 		const fileName = bobj.data("filename");
+ 		
+ 		const fileCallPath = encodeURIComponent(uploadPath + "/s_" + uuid + "_" + fileName);
+ 		
+ 		bobj.find("img").attr('src', '/display?fileName=' + fileCallPath);
+ 	} else {
+ 		bobj.find("img").attr('src', '/resources/imgs/noimg.png');
+ 	}
  </script>
 <!-- footer -->
 <%@include file="../includes/admin/footer.jsp" %>

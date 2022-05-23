@@ -31,9 +31,11 @@
 
 <div class="container detail_part">
   <!-- 이미지 영역 -->
-  <div class="img_part">
-    <img style="width: -webkit-fill-available;" src="/resources${product.productImg }">
-  </div>
+  <div class="ct_left_area">
+	<div class="image_wrap" data-bookid="${productInfo.imageList[0].productNo}" data-path="${productInfo.imageList[0].uploadPath}" data-uuid="${productInfo.imageList[0].uuid}" data-filename="${productInfo.imageList[0].fileName}">
+		<img>
+	</div>				
+</div>
   
   <!-- 정보 -->
   <div class="img_part">
@@ -45,33 +47,33 @@
     <div class="col-12">
       <label for="productName" class="form-label">상품명</label>
       <input class="form-control product_name" id="productName" 
-        value="${product.productName }" readonly="readonly" name="productName">
+        value="${productInfo.productName }" readonly="readonly" name="productName">
     </div>
     
     <div class="col-12">
       <label for="proudctPrice" class="form-label">개당 가격</label>
       <input class="form-control product_price" id="productPrice" 
-        value="${product.productPrice}" readonly="readonly">
+        value="${productInfo.productPrice}" readonly="readonly">
     </div>
 
 
     <div class="col-12">
       <label for="productAmount" class="form-label">수량</label>
       <input class="form-control product_amount" id="productAmount" 
-        value="${product.productAmount }" name="orderAmount">
+        value="${productInfo.productAmount }" name="orderAmount">
     </div>
     
     <div class="col-12">
       <label for="proudctPrice" class="form-label">총 결제 가격</label>
       <input class="form-control product_price" id="resultPrice" 
-        value="${product.productPrice}" readonly="readonly" name="orderPrice">
+        value="${productInfo.productPrice}" readonly="readonly" name="orderPrice">
     </div>
     
     
     <div class="col-12">
       <label for="productIntro" class="form-label">상품 소개</label>
       <textarea class="form-control product_intro" rows="8" cols="30" 
-        style="resize: none;" readonly="readonly">${product.productIntro }</textarea>
+        style="resize: none;" readonly="readonly">${productInfo.productIntro }</textarea>
     </div>
     <hr>
     <button type="submit" class="btn btn-primary">구매하기</button>
@@ -88,6 +90,22 @@
 	    $("#resultPrice").val(totalPrice);
 	  });
 	});
+ 	
+ 	
+ 	/* 이미지 삽입 */
+ 	const bobj = $(".image_wrap");
+
+ 	if(bobj.data("productNo")){
+ 		const uploadPath = bobj.data("path");
+ 		const uuid = bobj.data("uuid");
+ 		const fileName = bobj.data("filename");
+ 		
+ 		const fileCallPath = encodeURIComponent(uploadPath + "/s_" + uuid + "_" + fileName);
+ 		
+ 		bobj.find("img").attr('src', '/display?fileName=' + fileCallPath);
+ 	} else {
+ 		bobj.find("img").attr('src', '/resources/imgs/noimg.png');
+ 	}
  </script>
 <!-- footer -->
 <%@include file="./includes/admin/footer.jsp" %>
