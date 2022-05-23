@@ -39,14 +39,21 @@
 	<!-- Interceptor가 가로챌 URL 매핑 설정 -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/member/login"/>
-			<beans:bean id="loginInterceptor"
+			<mapping path="/member/login.do"/>
+			<beans:bean id="LoginInterceptor"
 				class="edu.spring.p01.interceptor.LoginInterceptor">
 			</beans:bean>
 		</interceptor>
 		<interceptor>
 			<mapping path="/admin/**"/>
-			<beans:bean id="adminInterceptor"
+			<beans:bean id="AdminInterceptor"
+				class="edu.spring.p01.interceptor.AdminInterceptor">
+			</beans:bean>
+		</interceptor>
+		<interceptor>
+			<mapping path="/cart/**"/>
+			<exclude-mapping path="/cart/add"/>
+			<beans:bean id="CartInterceptor"
 				class="edu.spring.p01.interceptor.AdminInterceptor">
 			</beans:bean>
 		</interceptor>

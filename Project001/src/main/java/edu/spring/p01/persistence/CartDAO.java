@@ -6,7 +6,7 @@ import edu.spring.p01.domain.CartVO;
 
 public interface CartDAO {
 	/* 카트 추가 */
-	int addCart(CartVO cart);
+	int addCart(CartVO cart) throws Exception;
 	
 	/* 카트 삭제 */
 	int deleteCart(int cartId);
