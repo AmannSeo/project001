@@ -81,53 +81,6 @@ public class ProductController {
 		model.addAttribute("pageMaker", pageMaker);
 	}
 	
-	/* 이미지 정보 반환 */
-	@GetMapping(value="/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<AttachImageVO>> getAttachList(int productNo){
-		
-		logger.info("getAttachList() Call............." + productNo);
-		
-		return new ResponseEntity<List<AttachImageVO>>(attachDao.getAttachList(productNo), HttpStatus.OK);
-	}
-	
-	/* 이미지 출력 */
-	@GetMapping("/display")
-	public ResponseEntity<byte[]> getImage(String fileName){
-		
-		logger.info("getImage()........" + fileName);
-		
-		File file = new File("c:\\upload\\" + fileName);
-		
-		ResponseEntity<byte[]> result = null;
-		
-		try {
-			
-			HttpHeaders header = new HttpHeaders();
-			
-			header.add("Content-type", Files.probeContentType(file.toPath()));
-			
-			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
-			
-		}catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		return result;
-		
-	}
-	
-	/* 상품 상세 */
-	@GetMapping("/detail/{productNo}")
-	public String detailGET(@PathVariable("productNo")int productNo, Model model) throws Exception {
-		
-		logger.info("detailGET() Call : productNo : " + productNo);
-		
-		// 상품 정보
-		model.addAttribute("productInfo", productService.getProductInfo(productNo));
-		
-		return "/detail";
-		
-	}
 	
 	// 회원 구매내역
 	@GetMapping("/order")
@@ -135,31 +88,6 @@ public class ProductController {
 		logger.info("orderGET() Call");
 	}
 	
-	/* 상품 검색 */
-	@GetMapping("search")
-	public String searchProductGet(PageCriteria cri, Model model) {
-		
-		logger.info("searchProductGet() Call >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-		logger.info("cri : " + cri);
-		
-		List<ProductVO> list = productService.getProductList(cri);
-		
-		logger.info("pre list : " + list);
-		logger.info("==========================================================");
-		if (!list.isEmpty()) {
-			model.addAttribute("list", list);
-			logger.info("list : " + list);
-			logger.info("==========================================================");
-		} else {
-			model.addAttribute("listCheck", "empty");
-			
-			return "search";
-		}
-		
-		model.addAttribute("pageMaker", new PageDTO(cri, productService.productGetTotal(cri)));
-		
-		
-		return "search";
-	}
+	
 
 }

@@ -23,14 +23,15 @@ public class CartController {
 	public String addCartPOST(CartVO cart, HttpServletRequest request) {
 		// login check
 		HttpSession session = request.getSession();
-		MemberVO member = (MemberVO)session.getAttribute("member");
-		if(member == null) {
+		MemberVO mvo = (MemberVO)session.getAttribute("member");
+		if(mvo == null) {
 			return "5";
 		}
 		
 		// cart add
+		
 		int result = cartService.addCart(cart);
 		
 		return result + "";
-	}
+	}	
 }

@@ -39,7 +39,6 @@
   
   <!-- 정보 -->
   <div class="img_part">
-    <form action="/member/order" method="post">
     <input type="hidden" name="memberNo" value="${sessionMemberVo.memberNo }">
     <input type="hidden" name="memberId" value="${sessionMemberVo.memberId }">
     
@@ -76,12 +75,25 @@
         style="resize: none;" readonly="readonly">${productInfo.productIntro }</textarea>
     </div>
     <hr>
-    <button type="submit" class="btn btn-primary">구매하기</button>
-   </form>
+    <div class="button">
+        <div class="button_quantity">
+          주문수량
+          <input type="text" class="quantity_input" value="1">
+          <span>
+            <button class="btn_plus">+</button>
+            <button class="btn_minus">-</button>
+          </span>
+        </div>  
+        <div class="button_set">
+          <a class="btn_cart">CART</a>
+          <a class="btn_buy">BUY</a>
+        </div>
+    </div>
   </div>
 </div> 
  
  <script>
+ 	/* 
  	$(document).ready(function(){
 	  $("#productAmount").change(function(){
 		var productPrice = $("#productPrice").val() * 1;
@@ -90,7 +102,7 @@
 	    $("#resultPrice").val(totalPrice);
 	  });
 	});
- 	
+ 	 */
  	
  	/* 이미지 삽입 */
  	const bobj = $(".image_wrap");
@@ -106,6 +118,48 @@
  	} else {
  		bobj.find("img").attr('src', '/resources/imgs/noimg.png');
  	}
+ 	
+ 	/* 수량 버튼 */
+ 	let quantity = $(".quantity_input").val();
+	$(".btn_plus").on("click", function(){
+		$(".quantity_input").val(++quantity);
+	});
+	$(".btn_minus").on("click", function(){
+		if(quantity > 1){
+			$(".quantity_input").val(--quantity);	
+		}
+	});
+ 	
+ 	/* 서버 전송 데이터 */
+ 	const form = {
+ 	        memberId : '${member.memberId}',
+ 	        productNo : '${productInfo.productNo}',
+ 	        productCount : ''
+ 	}
+ 	
+ 	$(".btn_cart").on("click", function(e){
+		form.productCount = $(".quantity_input").val();
+		$.ajax({
+			url: '/cart/add',
+			type: 'POST',
+			data: form,
+			success: function(result){
+				cartAlert(result);
+			}
+		})
+	});
+	
+	function cartAlert(result){
+		if(result == '0'){
+			alert("장바구니에 추가를 하지 못하였습니다.");
+		} else if(result == '1'){
+			alert("장바구니에 추가되었습니다.");
+		} else if(result == '2'){
+			alert("장바구니에 이미 추가되어져 있습니다.");
+		} else if(result == '5'){
+			alert("로그인이 필요합니다.");	
+		}
+	}
  </script>
 <!-- footer -->
 <%@include file="./includes/admin/footer.jsp" %>

@@ -57,26 +57,28 @@ public class CartDAOTest {
 	 */
 	
 	// 카트 목록
-	/*
-	 * @Test public void getCartTest() { String memberId = "admin";
-	 * 
-	 * List<CartVO> list = cartDao.getCart(memberId); for(CartVO cart : list) {
-	 * System.out.println(cart); } }
-	 */
+	
+	  @Test public void getCartTest() { 
+		  String memberId = "admin";
+	  
+		  List<CartVO> list = cartDao.getCart(memberId); 
+			  for(CartVO cart : list) {
+			  System.out.println(cart); 
+		  } 
+	  }
+	 
 	
 	// 카트 확인
-	@Test
-	public void checkCartTest() {
-		String memberId = "admin";
-		int productNo = 2;
-		
-		CartVO cart = new CartVO();
-		cart.setMemberId(memberId);
-		cart.setProductNo(productNo);
-		
-		CartVO resultCart = cartDao.checkCart(cart);
-		System.out.println("결과 : " + resultCart);
-	}
+	/*
+	 * @Test public void checkCartTest() { String memberId = "admin"; int productNo
+	 * = 2;
+	 * 
+	 * CartVO cart = new CartVO(); cart.setMemberId(memberId);
+	 * cart.setProductNo(productNo);
+	 * 
+	 * CartVO resultCart = cartDao.checkCart(cart); System.out.println("결과 : " +
+	 * resultCart); }
+	 */
 	 
 	 
 	

@@ -91,7 +91,7 @@
                           ${list.cateName}
                         </div>
                         <div class="title">
-                          <a href="/product/detail/${list.productNo}">
+                          <a href="/detail/${list.productNo}">
                             ${list.productName}
                           </a>
                         </div>

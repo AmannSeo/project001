@@ -1,20 +1,31 @@
 package edu.spring.p01;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.spring.p01.domain.AttachImageVO;
 import edu.spring.p01.domain.HelpVO;
 import edu.spring.p01.domain.ProductVO;
 import edu.spring.p01.pageutil.PageCriteria;
 import edu.spring.p01.pageutil.PageMaker;
+import edu.spring.p01.persistence.AttachDAO;
 import edu.spring.p01.service.AdminService;
 import edu.spring.p01.service.HelpService;
 import edu.spring.p01.service.ProductService;
@@ -30,6 +41,9 @@ public class MainController {
 	
 	@Autowired
 	private HelpService helpService;
+	
+	@Autowired
+	private AttachDAO attachDao;
 	
 	// main page
 	@RequestMapping(value= "/main", method = RequestMethod.GET)
@@ -50,10 +64,53 @@ public class MainController {
 		model.addAttribute("cate3_4", productService.getCateCode3_4());
 	}
 	
-	// fine-fragrances 페이지 이동
-	@GetMapping(value="/fine-fragrances")
-	public void fineFragrancesGET(Model model, Integer page, Integer numsPerPage, String keyword) throws Exception {
-		logger.info("productListGET() Call");
+
+	/* 이미지 정보 반환 */
+	@GetMapping(value="/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<List<AttachImageVO>> getAttachList(int productNo){
+		
+		logger.info("getAttachList() Call............." + productNo);
+		
+		return new ResponseEntity<List<AttachImageVO>>(attachDao.getAttachList(productNo), HttpStatus.OK);
+	}
+	
+	/* 이미지 출력 */
+	@GetMapping("/display")
+	public ResponseEntity<byte[]> getImage(String fileName){
+		
+		logger.info("getImage()........" + fileName);
+		
+		File file = new File("c:\\upload\\" + fileName);
+		
+		ResponseEntity<byte[]> result = null;
+		
+		try {
+			
+			HttpHeaders header = new HttpHeaders();
+			
+			header.add("Content-type", Files.probeContentType(file.toPath()));
+			
+			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
+			
+		}catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+	}
+	
+	/* 상품 상세 */
+	@GetMapping("/detail/{productNo}")
+	public String detailGET(@PathVariable("productNo")int productNo, Model model) throws Exception {
+		
+		logger.info("detailGET() Call : productNo : " + productNo);
+		
+		// 상품 정보
+		model.addAttribute("productInfo", productService.getProductInfo(productNo));
+		
+		return "/detail";
+		
 	}
 	
 	// 상품 검색
@@ -76,6 +133,11 @@ public class MainController {
 		return "search";
 	}
 	
+	// fine-fragrances 페이지 이동
+	@GetMapping(value="/fine-fragrances")
+	public void fineFragrancesGET(Model model, Integer page, Integer numsPerPage, String keyword) throws Exception {
+		logger.info("productListGET() Call");
+	}
 	
 	// home creations 페이지 이동
 	@GetMapping(value="/home-creations")

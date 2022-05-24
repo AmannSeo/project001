@@ -21,7 +21,7 @@ public class CartDAOImple implements CartDAO{
 	public SqlSession sqlSession;
 	
 	@Override
-	public int addCart(CartVO cart) {
+	public int addCart(CartVO cart) throws Exception{
 		logger.info("addCart() Call : " + cart);
 		return sqlSession.insert(NAMESPACE + ".addCart", cart);
 	}
