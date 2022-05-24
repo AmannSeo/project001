@@ -15,7 +15,7 @@
     crossorigin="anonymous"></script>
     
     <!-- index/css -->
-    <link rel="stylesheet" href="/resources/css/admin/helpList.css">
+    <link href="/resources/css/help.css" rel="stylesheet">
     
 <title>질문 게시판</title>
 </head>
@@ -24,9 +24,9 @@
 <%@include file="includes/layout/nav_blk.jsp" %>
 
 <div class="container">
-  <div class="help_list">
+  <div class="help_list" style="height : 50rem;">
+    <div class="help_bg" style="height: 420px"></div>
     <h2>질문 게시판</h2>
-    <div style="height : 40px;"></div>
     <table class="help_list_table">
         <thead>
           <tr>
@@ -53,7 +53,6 @@
           </c:forEach>
         </tbody>
       </table>
-    <div style="height : 40px;"></div>
   </div>
 </div>
 

@@ -33,7 +33,7 @@
 
   
 
-  <div class="help_list">
+  <div class="help_list" style="width: 100%">
   <h2>질문 게시판</h2>
   <div style="height : 40px;"></div>
   <!-- 질문 존재 O -->

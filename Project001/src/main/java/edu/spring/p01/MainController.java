@@ -137,18 +137,57 @@ public class MainController {
 	@GetMapping(value="/fine-fragrances")
 	public void fineFragrancesGET(Model model, Integer page, Integer numsPerPage, String keyword) throws Exception {
 		logger.info("productListGET() Call");
+		
+		model.addAttribute("cate1_1", productService.getCateCode1_1());
+		model.addAttribute("cate1_2", productService.getCateCode1_2());
+		model.addAttribute("cate1_3", productService.getCateCode1_3());
+		
+		model.addAttribute("cate2_1", productService.getCateCode2_1());
+		model.addAttribute("cate2_2", productService.getCateCode2_2());
+		model.addAttribute("cate2_3", productService.getCateCode2_3());
+		
+		model.addAttribute("cate3_1", productService.getCateCode3_1());
+		model.addAttribute("cate3_2", productService.getCateCode3_2());
+		model.addAttribute("cate3_3", productService.getCateCode3_3());
+		model.addAttribute("cate3_4", productService.getCateCode3_4());
 	}
 	
 	// home creations 페이지 이동
 	@GetMapping(value="/home-creations")
-	public void homeCreationsGET() {
+	public void homeCreationsGET(Model model, Integer page, Integer numsPerPage, String keyword) {
 		logger.info("homeCreationsGET() Call");
+		
+		model.addAttribute("cate1_1", productService.getCateCode1_1());
+		model.addAttribute("cate1_2", productService.getCateCode1_2());
+		model.addAttribute("cate1_3", productService.getCateCode1_3());
+		
+		model.addAttribute("cate2_1", productService.getCateCode2_1());
+		model.addAttribute("cate2_2", productService.getCateCode2_2());
+		model.addAttribute("cate2_3", productService.getCateCode2_3());
+		
+		model.addAttribute("cate3_1", productService.getCateCode3_1());
+		model.addAttribute("cate3_2", productService.getCateCode3_2());
+		model.addAttribute("cate3_3", productService.getCateCode3_3());
+		model.addAttribute("cate3_4", productService.getCateCode3_4());
 	}
 	
 	// body-hair-face 페이지 이동
 	@GetMapping(value="/body-hair-face")
-	public void bodyHairFaceGET() {
+	public void bodyHairFaceGET(Model model, Integer page, Integer numsPerPage, String keyword) {
 		logger.info("bodyHairFaceGET() Call");
+		
+		model.addAttribute("cate1_1", productService.getCateCode1_1());
+		model.addAttribute("cate1_2", productService.getCateCode1_2());
+		model.addAttribute("cate1_3", productService.getCateCode1_3());
+		
+		model.addAttribute("cate2_1", productService.getCateCode2_1());
+		model.addAttribute("cate2_2", productService.getCateCode2_2());
+		model.addAttribute("cate2_3", productService.getCateCode2_3());
+		
+		model.addAttribute("cate3_1", productService.getCateCode3_1());
+		model.addAttribute("cate3_2", productService.getCateCode3_2());
+		model.addAttribute("cate3_3", productService.getCateCode3_3());
+		model.addAttribute("cate3_4", productService.getCateCode3_4());
 	}
 	
 	// GROOMING 페이지 이동
@@ -159,8 +198,21 @@ public class MainController {
 	
 	// ABOUT US Page
 	@GetMapping(value="/about-us")
-	public void aboutUsGET() {
+	public void aboutUsGET(Model model, Integer page, Integer numsPerPage, String keyword) {
 		logger.info("aboutUs() Call");
+		
+		model.addAttribute("cate1_1", productService.getCateCode1_1());
+		model.addAttribute("cate1_2", productService.getCateCode1_2());
+		model.addAttribute("cate1_3", productService.getCateCode1_3());
+		
+		model.addAttribute("cate2_1", productService.getCateCode2_1());
+		model.addAttribute("cate2_2", productService.getCateCode2_2());
+		model.addAttribute("cate2_3", productService.getCateCode2_3());
+		
+		model.addAttribute("cate3_1", productService.getCateCode3_1());
+		model.addAttribute("cate3_2", productService.getCateCode3_2());
+		model.addAttribute("cate3_3", productService.getCateCode3_3());
+		model.addAttribute("cate3_4", productService.getCateCode3_4());
 	}
 	
 	// FAQ Page
@@ -168,6 +220,19 @@ public class MainController {
 	public void helpGET(Model model, Integer page, Integer numsPerPage) {
 		logger.info("helpGET() Call");
 		logger.info("list page = " + page + ", list numsPerPage =" + numsPerPage);
+		
+		model.addAttribute("cate1_1", productService.getCateCode1_1());
+		model.addAttribute("cate1_2", productService.getCateCode1_2());
+		model.addAttribute("cate1_3", productService.getCateCode1_3());
+		
+		model.addAttribute("cate2_1", productService.getCateCode2_1());
+		model.addAttribute("cate2_2", productService.getCateCode2_2());
+		model.addAttribute("cate2_3", productService.getCateCode2_3());
+		
+		model.addAttribute("cate3_1", productService.getCateCode3_1());
+		model.addAttribute("cate3_2", productService.getCateCode3_2());
+		model.addAttribute("cate3_3", productService.getCateCode3_3());
+		model.addAttribute("cate3_4", productService.getCateCode3_4());
 		
 		// Paging 처리
 		PageCriteria criteria = new PageCriteria();

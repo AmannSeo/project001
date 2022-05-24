@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<!DOCTYPE html>
+<html>
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
 <meta name="generator" content="Hugo 0.88.1">
-
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
@@ -18,6 +19,7 @@
 <!-- custom css -->
 <link rel="stylesheet" href="/resources/css/includes/header.css">
 <link rel="stylesheet" href="/resources/css/bootstrap/navbar.css">
+
 
 <style type="text/css">
 .nav-link {
@@ -85,10 +87,11 @@
 }
 .dropdown-part {
   border-left: 1px solid black;
+  background: rgb(255,255,255, 0.5);
 }
 
 </style>
-
+</head>
   <div class="container nav_wrapper" style="padding-top: 12px !important;">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
       <a href="/main" >

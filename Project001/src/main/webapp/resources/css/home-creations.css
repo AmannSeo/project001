@@ -7,9 +7,9 @@ p {
   font-size: 14px !important;
 }
 .fine_wrap {
-  background: url("/resources/imgs/ff_bg.jpg");
+  background: url("/resources/imgs/h-c-bg.jpg");
   background-size: cover;
-  background-position-y : 24%;
+  background-position-y : 60%;
   height: 480px;
 }
 h1 {

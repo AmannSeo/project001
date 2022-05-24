@@ -302,39 +302,6 @@
         </ul>
       </div>
       
-      <%-- 
-      <div class="navi_bar_area">
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li class="nav-item dropdown">
-            <div class="dropdown">
-              <a href="/fine-fragrances" class="nav-link px-2 dropdown-toggle menu_channel">FINE FRAGRANCES</a>
-              <div class="dropdown-content">
-                <c:forEach items="${cate1}" var="cate"> 
-                  <a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
-                </c:forEach>
-              </div>
-            </div>
-            <div class="dropdown">
-              <a href="/home-creations" class="nav-link px-2 dropdown-toggle menu_channel">HOME CREATIONS</a>
-              <div class="dropdown-content">
-                <c:forEach items="${cate2}" var="cate"> 
-                  <a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
-                </c:forEach>
-              </div>
-            </div>
-            <div class="dropdown">
-              <a href="/body-hair-face" class="nav-link px-2 dropdown-toggle menu_channel">BODY - HAIR - FACE</a>
-              <div class="dropdown-content">
-                <c:forEach items="${cate3}" var="cate"> 
-                  <a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a>
-                </c:forEach>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-       --%>
-      
       <div class="search_wrap">
           <form id="searchForm" action="/search" method="get">
             <div class="search_input">

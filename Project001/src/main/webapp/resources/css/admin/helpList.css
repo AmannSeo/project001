@@ -3,7 +3,7 @@
   padding : 50px 80px;
 }
 .help_list table {
-  width: 1200px;
+  width: 100%;
 }
 .help_list thead {
   background: rgb(0, 5, 16);

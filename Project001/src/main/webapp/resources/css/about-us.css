@@ -1,0 +1,52 @@
+@charset "UTF-8";
+@import url('http://fonts.cdnfonts.com/css/emberly');
+body {
+  padding: 0 !important;
+}
+p {
+  font-family: 'AritaBuri' !important;
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 0 !important;
+  font-size: 12px;
+}
+.fine_wrap {
+  background: url("/resources/imgs/aa_bg.jpg");
+  background-size: cover;
+  background-position-y : 42%;
+  height: 360px;
+}
+h1 {
+  font-family: 'Emberly', sans-serif; 
+  font-size: 88px !important;  
+}
+h2 {
+  font-family: 'Emberly', sans-serif; 
+  font-size: 32px;  
+}
+h4 {
+  font-family: 'Emberly', sans-serif; 
+  font-size: 56px !important;
+}
+
+.main-title, .main-info {
+  color: white;
+  opacity: 86%;
+}
+.section-about{
+  display : flex;
+  position: relative;
+  height: 50rem;
+}
+.about-left {
+  background: url("/resources/imgs/about_us_bg.jpg");
+  background-size : contain;
+  background-repeat : no-repeat;
+  background-position : center;
+  width : 40%;
+  margin : 32px;
+}
+.about-right {
+  margin: auto 0;
+}
+
