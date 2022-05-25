@@ -31,7 +31,7 @@
 <div class="content" style="display: flex;">
   <%@include file="../includes/admin/admin_menu.jsp" %>
 
-  <div class="notice_list">
+  <div class="notice_list" style="width: 100%">
   <h2>공지사항 게시판</h2>
   <div style="height : 40px;"></div>
   <!-- 질문 존재 O -->
@@ -68,6 +68,32 @@
       <a href="noticeInsert"><input type="button" value="질문 등록"></a>
     </div>
   </div>
+  
+  <div class="paging_num">
+        <ul class="pageMaker">
+          <c:if test="${pageMaker.hasPrev }"> <!-- 페이지에 이전이 있을경우에만 버튼을 만든다 -->
+            <li class="pageMaker_btn hasPrev">
+              <a href="noticeList?page=${pageMaker.startPageNo - 1 }">이전</a>
+            </li>
+          </c:if>
+        
+          <!-- 반복문에 시작과 끝이 있을 경우 -->
+          <c:forEach begin="${pageMaker.startPageNo }" 
+          end="${pageMaker.endPageNo }" var="num"> 
+            <li class="pageMaker_btn ${pageMaker.criteria.page == num ? "active":""}">
+              <a href="noticeList?page=${num }">${num }</a>
+            </li>
+          </c:forEach>
+          
+         
+          
+          <c:if test="${pageMaker.hasNext }">
+            <li class="pageMaker_btn hasNext">
+              <a href="noticeList?page=${pageMaker.endPageNo + 1 }">다음</a>
+            </li>
+          </c:if>
+        </ul>
+      </div>
   
 </div>      
     

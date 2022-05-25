@@ -32,7 +32,7 @@
 <!-- content -->
 <div class="content" style="display: flex;">
   <%@include file="../includes/admin/admin_menu.jsp" %>
-  <div class="productList_wrapper">
+  <div class="productList_wrapper" style="width: 100%">
     <div class="productList_wrap">
       <h2>상품 목록</h2>
       <div class="product_list" style="padding: 50px 0;">
@@ -41,7 +41,7 @@
           <table class="product_list_table">
             <thead>
               <tr>
-                <th class="list_no th_column_0">상품이미지</th>
+                <!-- <th class="list_no th_column_0">상품이미지</th> -->
                 <th class="list_no th_column_01">상품번호</th>
                 <th class="list_name th_column_02">상품명</th>
                 <th class="list_category th_column_03">카테고리</th>
@@ -53,6 +53,11 @@
             <tbody>
               <c:forEach var="list" items="${list }">
                 <tr>
+                  <%-- <td>
+                    <div class="image_wrap bd-placeholder-img card-img-top" data-bookid="${list.imageList[0].productNo}" data-path="${list.imageList[0].uploadPath}" data-uuid="${list.imageList[0].uuid}" data-filename="${list.imageList[0].fileName}">
+                      <img>
+                   </div>
+                  </td> --%>
                   <td><c:out value="${list.productNo }"></c:out></td>
                   <td><a href="productDetail?productNo=${list.productNo }"><c:out value="${list.productName }"></c:out></a></td>
                   <td><c:out value="${list.cateCode }"></c:out></td>

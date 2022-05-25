@@ -209,92 +209,93 @@
   </div>
 </div>  
 
-  <script type="text/javascript">
-  $(document).ready(function(){
-      $('#insertBtn').click(function(){
-    	  
-    	  // 검사 통과 유무 변수
-    	  let nameCheck = false; // 상품명
-    	  let categoryCheck = false; // 상품 카테고리
-    	  let priceCheck = false; // 상품 가격
-    	  let amountCheck = false; // 상품 수량
-    	  let introCheck = false; // 상품 소개
-    	  
-    	  // 입력값 변수
-    	  let pName = $('input[name=productName]').val(); // 상품명
-    	  let category = $('select[name=cateCode]').val(); // 상품 카테고리
-    	  let price = $('input[name=productPrice]').val(); // 상품 가격
-    	  let amount = $('input[name=productAmount]').val(); // 상품 수량
-    	  let proIntro = $('textarea[name=productIntro]').val(); // 상품 소개
-    	  
-    	  // 상품명 공란 체크
-    	  if(pName === ""){
-    		  $('.warn_productName').css('display', 'block');
-    		  nameCheck = false;
-          } else{
-              $('.warn_productName').css('display', 'none');
-              nameCheck = true;
-    	  }
-    	  
-    	  // 상품 카테고리 공란 체크
-    	  if(category === "none"){
-    		  $('.warn_category').css('display', 'block');
-    		  categoryCheck = false;
-          } else{
-              $('.warn_category').css('display', 'none');
-              categoryCheck = true;
-    	  }
-    	  
-    	  // 상품 가격 공란 체크
-    	  if(price === ""){
-    		  $('.warn_price').css('display', 'block');
-    		  priceCheck = false;
-          } else{
-              $('.warn_price').css('display', 'none');
-              priceCheck = true;
-    	  }
-    	  
-    	  // 상품 수량 공란 체크
-    	  if(amount === ""){
-    		  $('.warn_amount').css('display', 'block');
-    		  amountCheck = false;
-          } else{
-              $('.warn_amount').css('display', 'none');
-              amountCheck = true;
-    	  }
-    	  
-    	  // 상품 소개 공란 체크
-    	  if(proIntro === ""){
-    		  $('.warn_proIntro').css('display', 'block');
-    		  introCheck = false;
-          } else{
-              $('.warn_proIntro').css('display', 'none');
-              introCheck = true;
-    	  }
-    	  
-    	  if(nameCheck&&categoryCheck&&priceCheck&&amountCheck&&introCheck){
-    			$('#productReg_form').attr("action", "/admin/productReg")
-  	  	    	$('#productReg_form').submit();
-    	  } else {
-    		  return;
-    	  }
-    	  
-    	
-      }); // end insertBtn.click()
-      
-      $('#cancelBtn').click(function(){
-    	  location = '/admin/productList'
-      });
-      
-      
-      
-  }); // end document()
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#insertBtn').click(function(){
+  	  
+  	  // 검사 통과 유무 변수
+  	  let nameCheck = false; // 상품명
+  	  let categoryCheck = false; // 상품 카테고리
+  	  let priceCheck = false; // 상품 가격
+  	  let amountCheck = false; // 상품 수량
+  	  let introCheck = false; // 상품 소개
+  	  
+  	  // 입력값 변수
+  	  let pName = $('input[name=productName]').val(); // 상품명
+  	  let category = $('select[name=cateCode]').val(); // 상품 카테고리
+  	  let price = $('input[name=productPrice]').val(); // 상품 가격
+  	  let amount = $('input[name=productAmount]').val(); // 상품 수량
+  	  let proIntro = $('textarea[name=productIntro]').val(); // 상품 소개
+  	  
+  	  // 상품명 공란 체크
+  	  if(pName === ""){
+  		  $('.warn_productName').css('display', 'block');
+  		  nameCheck = false;
+        } else{
+            $('.warn_productName').css('display', 'none');
+            nameCheck = true;
+  	  }
+  	  
+  	  // 상품 카테고리 공란 체크
+  	  if(category === "none"){
+  		  $('.warn_category').css('display', 'block');
+  		  categoryCheck = false;
+        } else{
+            $('.warn_category').css('display', 'none');
+            categoryCheck = true;
+  	  }
+  	  
+  	  // 상품 가격 공란 체크
+  	  if(price === ""){
+  		  $('.warn_price').css('display', 'block');
+  		  priceCheck = false;
+        } else{
+            $('.warn_price').css('display', 'none');
+            priceCheck = true;
+  	  }
+  	  
+  	  // 상품 수량 공란 체크
+  	  if(amount === ""){
+  		  $('.warn_amount').css('display', 'block');
+  		  amountCheck = false;
+        } else{
+            $('.warn_amount').css('display', 'none');
+            amountCheck = true;
+  	  }
+  	  
+  	  // 상품 소개 공란 체크
+  	  if(proIntro === ""){
+  		  $('.warn_proIntro').css('display', 'block');
+  		  introCheck = false;
+        } else{
+            $('.warn_proIntro').css('display', 'none');
+            introCheck = true;
+  	  }
+  	  
+  	  if(nameCheck&&categoryCheck&&priceCheck&&amountCheck&&introCheck){
+  			$('#productReg_form').attr("action", "/admin/productReg")
+	  	    	$('#productReg_form').submit();
+  	  } else {
+  		  return;
+  	  }
+  	  
+  	
+    }); // end insertBtn.click()
+    
+    $('#cancelBtn').click(function(){
+  	  location = '/admin/productList'
+    });
+    
+    
+    
+}); // end document()
   
   // category
   // 서버로 부터 전달 받은 JSON 데이터를 javacsript가 바로 사용할 수 없음
   // JSON 데이터를 자바스크립트 객체로 변환해주어야 함.
   // 자바스크립트에서는 JSON 문자열 데이터를 자바크립트 객체로 변화해주는 메소드 제공
   let cateList = JSON.parse('${cateList}')
+
   
   // 등급에 맞게 분류하여 배열에 저장
   let cate1Array = new Array();

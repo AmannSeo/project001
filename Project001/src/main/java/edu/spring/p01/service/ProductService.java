@@ -21,16 +21,19 @@ public interface ProductService {
 	ProductVO getProductInfo(int productNo);
 	
 	// FINE FRAGRANCES
+	List<ProductVO> getCateCode1();
 	List<ProductVO> getCateCode1_1();
 	List<ProductVO> getCateCode1_2();
 	List<ProductVO> getCateCode1_3();
 	
 	// HOME CREATIONS
+	List<ProductVO> getCateCode2();
 	List<ProductVO> getCateCode2_1();
 	List<ProductVO> getCateCode2_2();
 	List<ProductVO> getCateCode2_3();
 	
 	// BODY-HAIR-FACE
+	List<ProductVO> getCateCode3();
 	List<ProductVO> getCateCode3_1();
 	List<ProductVO> getCateCode3_2();
 	List<ProductVO> getCateCode3_3();

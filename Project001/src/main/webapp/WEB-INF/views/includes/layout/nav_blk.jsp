@@ -89,7 +89,6 @@
   border-left: 1px solid black;
   background: rgb(255,255,255, 0.5);
 }
-
 </style>
 </head>
   <div class="container nav_wrapper" style="padding-top: 12px !important;">
@@ -375,7 +374,7 @@
          }); // end btn_logout.click()
          
          $('.btn_admin_page').click(function(){
-           var target = encodeURI('/admin/index');
+           var target = encodeURI('/admin/memberManage');
            location = target;
          }); // end btn_admin_page.click()
      }); // end document()

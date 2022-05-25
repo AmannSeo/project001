@@ -109,7 +109,22 @@ public class MainController {
 		// 상품 정보
 		model.addAttribute("productInfo", productService.getProductInfo(productNo));
 		
+		model.addAttribute("cate1_1", productService.getCateCode1_1());
+		model.addAttribute("cate1_2", productService.getCateCode1_2());
+		model.addAttribute("cate1_3", productService.getCateCode1_3());
+		
+		model.addAttribute("cate2_1", productService.getCateCode2_1());
+		model.addAttribute("cate2_2", productService.getCateCode2_2());
+		model.addAttribute("cate2_3", productService.getCateCode2_3());
+		
+		model.addAttribute("cate3_1", productService.getCateCode3_1());
+		model.addAttribute("cate3_2", productService.getCateCode3_2());
+		model.addAttribute("cate3_3", productService.getCateCode3_3());
+		model.addAttribute("cate3_4", productService.getCateCode3_4());
+		
 		return "/detail";
+		
+		
 		
 	}
 	
@@ -129,6 +144,19 @@ public class MainController {
 			model.addAttribute("listCheck", "empty");
 			return "search";
 		}
+		
+		model.addAttribute("cate1_1", productService.getCateCode1_1());
+		model.addAttribute("cate1_2", productService.getCateCode1_2());
+		model.addAttribute("cate1_3", productService.getCateCode1_3());
+		
+		model.addAttribute("cate2_1", productService.getCateCode2_1());
+		model.addAttribute("cate2_2", productService.getCateCode2_2());
+		model.addAttribute("cate2_3", productService.getCateCode2_3());
+		
+		model.addAttribute("cate3_1", productService.getCateCode3_1());
+		model.addAttribute("cate3_2", productService.getCateCode3_2());
+		model.addAttribute("cate3_3", productService.getCateCode3_3());
+		model.addAttribute("cate3_4", productService.getCateCode3_4());
 		
 		return "search";
 	}

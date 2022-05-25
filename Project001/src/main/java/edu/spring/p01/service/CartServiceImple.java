@@ -21,8 +21,7 @@ public class CartServiceImple implements CartService{
 			return 2;
 		}
 		
-		// 장바구니 등록 & 에러 시 0 반환
-		
+		// 장바구니 등록 & 에러 시 0반환
 		try {
 			return cartDao.addCart(cart);
 		} catch (Exception e) {

@@ -37,12 +37,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import edu.spring.p01.domain.AttachImageVO;
 import edu.spring.p01.domain.CateVO;
+import edu.spring.p01.domain.HelpVO;
 import edu.spring.p01.domain.MemberVO;
+import edu.spring.p01.domain.NoticeVO;
 import edu.spring.p01.domain.ProductVO;
 import edu.spring.p01.pageutil.PageCriteria;
 import edu.spring.p01.pageutil.PageMaker;
 import edu.spring.p01.service.AdminService;
+import edu.spring.p01.service.HelpService;
 import edu.spring.p01.service.MemberService;
+import edu.spring.p01.service.NoticeService;
 import edu.spring.p01.util.UploadFileUtils;
 import net.coobird.thumbnailator.Thumbnails;
 
@@ -56,6 +60,12 @@ public class AdminController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private HelpService helpService;
+	
+	@Autowired
+	private NoticeService noticeService;
 
 	@Resource(name = "uploadPath")
 	private String uploadPath;
@@ -418,20 +428,21 @@ public class AdminController {
 
 	// 회원 관리 페이지 이동
 	@GetMapping("/memberManage")
-	public void memberManageGET(Model model, Integer page, Integer numsPerPage) {
+	public void memberManageGET(Model model, Integer page, Integer numsPerPage, String keyword) {
 		logger.info("memberManageGET() Call");
 		logger.info("page = " + page + ", numsPerPage = " + numsPerPage);
+
 		// Paging
-		PageCriteria cri = new PageCriteria();
+		PageCriteria criteria = new PageCriteria();
 		if (page != null) {
-			cri.setPage(page);
+			criteria.setPage(page);
 		}
 
 		if (numsPerPage != null) {
-			cri.setNumsPerPage(numsPerPage);
+			criteria.setNumsPerPage(numsPerPage);
 		}
 
-		List<MemberVO> vo = memberService.selectAll(cri);
+		List<MemberVO> vo = memberService.selectAll(criteria);
 		if (!vo.isEmpty()) {
 			model.addAttribute("vo", vo); // 회원 존재
 		} else {
@@ -439,10 +450,10 @@ public class AdminController {
 		}
 
 		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCriteria(cri);
-		pageMaker.setTotalCount(memberService.getTotalNumsOfRecords(cri));
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(memberService.getTotalNumsOfRecords(criteria));
 		pageMaker.setPageData();
-		logger.info("getTotalNumsOfRecords : " + memberService.getTotalNumsOfRecords(cri));
+		logger.info("getTotalNumsOfRecords : " + memberService.getTotalNumsOfRecords(criteria));
 		model.addAttribute("pageMaker", pageMaker);
 	}
 
@@ -469,6 +480,203 @@ public class AdminController {
 	@RequestMapping(value = "/productComment", method = RequestMethod.GET)
 	public void productCommentGET() {
 		logger.info("productCommentGET() Call");
+	}
+	
+	// 고객센터 글 목록(관리자 페이지)
+	@GetMapping("/helpList")
+	public void helpListGET(Model model, Integer page, Integer numsPerPage) {
+		logger.info("list() Call");
+		logger.info("list page = " + page + ", list numsPerPage =" + numsPerPage);
+		
+		// Paging 처리
+		PageCriteria criteria = new PageCriteria();
+		if(page != null) {
+			criteria.setPage(page);
+		}
+		
+		if(numsPerPage != null) {
+			criteria.setNumsPerPage(numsPerPage);
+		}
+		
+		List<HelpVO> helpList = helpService.readAll(criteria);
+		if(!helpList.isEmpty()) {
+			model.addAttribute("helpList", helpList); // 상품 존재
+		} else {
+			model.addAttribute("listCheck", "empty"); // 상품 존재 안 할 경우
+		}
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(helpService.getTotalNumsOfRecords(criteria));
+		pageMaker.setPageData();
+		model.addAttribute("pageMaker", pageMaker);
+	}
+	
+	
+	// 고객센터 글 등록
+	@GetMapping("/helpInsert")
+	public void insertHelpGET() {
+		logger.info("insertHelpGET()");
+	}
+	
+	@PostMapping("/helpInsert")
+	public String insertHelpPOST(HelpVO help, RedirectAttributes reAttr) {
+		logger.info("insertHelpPOST() Call");
+		logger.info("insert Help Board : " + help.toString());
+		int result = helpService.insert(help);
+		logger.info(result + "행 삽입");
+		if(result == 1) {
+			reAttr.addFlashAttribute("insert_result", "success");
+			return "redirect:/admin/helpList";
+		} else {
+			reAttr.addFlashAttribute("insert_result", "fail");
+			return "redirect:/admin/helpInsert";
+			
+		}
+	}
+	
+	// 고객센터 글 보기
+	@GetMapping("/helpDetail")
+	public void helpDetail(Model model, Integer helpNo, Integer page) {
+		logger.info("help() Call");
+		logger.info("help No : " + helpNo);
+		HelpVO help = helpService.read(helpNo);
+		model.addAttribute("help", help);
+		model.addAttribute("page", page);
+	}
+	
+	// 고객센터 글 수정
+	@GetMapping("/helpUpdate")
+	public void updateGET(Model model, Integer helpNo, Integer page) {
+		logger.info("updateGET() 호출 : helpNo = " + helpNo);
+		HelpVO help = helpService.read(helpNo);
+		model.addAttribute("help", help);
+		model.addAttribute("page", page);
+	} // end updateGET
+	
+	@PostMapping("/helpUpdate")
+	public String updatePUT(HelpVO help, Integer page) {
+		logger.info("updatePUT() 호출 : helpNo = " + help.gethelpNo());
+		int result = helpService.update(help);
+		if(result == 1) {
+			logger.info("help update success");
+			return "redirect:/admin/helpDetail?helpNo=" + help.gethelpNo();
+		} else {
+			logger.info("help update fail");
+			return "redirect:/admin/helpUpdate?helpNo=" + help.gethelpNo();
+		}
+	} // end updatePUT()
+	
+	// 고객센터 글 삭제
+	@GetMapping("/helpDelete")
+	public String delete(Integer helpNo) {
+		logger.info("delete() 호출 : helpNo =" + helpNo);
+		int result = helpService.delete(helpNo);
+		if(result == 1) {
+			logger.info("update Success");
+			return "redirect:/admin/helpList";
+		} else {
+			logger.info("update fail");
+			return "redirect:/admin/helpDetail?helpNo=" + helpNo;
+		}
+	}
+
+
+	// 고객센터 글 목록(관리자 페이지)
+	@GetMapping("/noticeList")
+	public void noticeListGET(Model model, Integer page, Integer numsPerPage) {
+		logger.info("noticeListGET() Call");
+		logger.info("noticeListGET page = " + page + ", list numsPerPage =" + numsPerPage);
+		
+		// Paging 처리
+		PageCriteria criteria = new PageCriteria();
+		if(page != null) {
+			criteria.setPage(page);
+		}
+		
+		if(numsPerPage != null) {
+			criteria.setNumsPerPage(numsPerPage);
+		}
+		
+		List<NoticeVO> noticeList = noticeService.readAll(criteria);
+		if(!noticeList.isEmpty()) {
+			model.addAttribute("noticeList", noticeList); // 상품 존재
+		} else {
+			model.addAttribute("listCheck", "empty"); // 상품 존재 안 할 경우
+		}
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(noticeService.getTotalNumsOfRecords(criteria));
+		pageMaker.setPageData();
+		model.addAttribute("pageMaker", pageMaker);
+	}
+	
+	
+	// 고객센터 글 등록
+	@GetMapping("/noticeInsert")
+	public void insertNoticeGET() {
+		logger.info("notice insertnoticeGET()");
+	}
+	
+	@PostMapping("/noticeInsert")
+	public String insertNoticePOST(NoticeVO notice, RedirectAttributes reAttr) {
+		logger.info("insertnoticePOST() Call");
+		logger.info("insert notice Board : " + notice.toString());
+		int result = noticeService.insert(notice);
+		logger.info(result + "행 삽입");
+		if(result == 1) {
+			reAttr.addFlashAttribute("insert_result", "success");
+			return "redirect:/admin/noticeList";
+		} else {
+			reAttr.addFlashAttribute("insert_result", "fail");
+			return "redirect:/admin/noticeInsert";
+			
+		}
+	}
+	
+	// 고객센터 글 보기
+	@GetMapping("/noticeDetail")
+	public void noticeDetail(Model model, Integer noticeNo, Integer page) {
+		logger.info("noticeDetail() Call");
+		logger.info("noticep No : " + noticeNo);
+		NoticeVO notice = noticeService.read(noticeNo);
+		model.addAttribute("notice", notice);
+		model.addAttribute("page", page);
+	}
+	
+	// 고객센터 글 수정
+	@GetMapping("/noticeUpdate")
+	public void noticeUpdateGET(Model model, Integer noticeNo, Integer page) {
+		logger.info("notice updateGET() 호출 : noticeNo = " + noticeNo);
+		NoticeVO notice = noticeService.read(noticeNo);
+		model.addAttribute("notice", notice);
+		model.addAttribute("page", page);
+	} // end updateGET
+	
+	@PostMapping("/noticeUpdate")
+	public String noticeUpdatePUT(NoticeVO notice, Integer page) {
+		logger.info("updatePUT() 호출 : noticeNo = " + notice.getnoticeNo());
+		int result = noticeService.update(notice);
+		if(result == 1) {
+			logger.info("notice update success");
+			return "redirect:/admin/noticeDetail?noticeNo=" + notice.getnoticeNo();
+		} else {
+			logger.info("notice update fail");
+			return "redirect:/admin/noticeUpdate?noticeNo=" + notice.getnoticeNo();
+		}
+	} // end updatePUT()
+	
+	// 고객센터 글 삭제
+	@GetMapping("/noticeDelete")
+	public String noticeDelete(Integer noticeNo) {
+		logger.info("delete() 호출 : noticeNo =" + noticeNo);
+		int result = noticeService.delete(noticeNo);
+		if(result == 1) {
+			return "redirect:/admin/noticeList";
+		} else {
+			return "redirect:/admin/noticeDetail?noticeNo=" + noticeNo;
+		}
 	}
 
 }

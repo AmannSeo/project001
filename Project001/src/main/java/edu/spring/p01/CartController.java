@@ -17,21 +17,47 @@ public class CartController {
 
 	@Autowired
 	private CartService cartService;
+
 	
+	/* 장바구니 추가 */
+	/**
+	 * 0: 등록 실패
+	 * 1: 등록 성공
+	 * 2: 등록된 데이터 존재
+	 * 5: 로그인 필요
+	 * 
+	 */
 	@PostMapping("/cart/add")
 	@ResponseBody
 	public String addCartPOST(CartVO cart, HttpServletRequest request) {
-		// login check
+		// 로그인 체크
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("member");
 		if(mvo == null) {
 			return "5";
 		}
 		
-		// cart add
+		// 카트 등록
 		
 		int result = cartService.addCart(cart);
 		
 		return result + "";
-	}	
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

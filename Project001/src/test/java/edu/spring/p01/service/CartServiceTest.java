@@ -19,9 +19,9 @@ public class CartServiceTest {
 	@Test
 	public void addCartTest() {
 		//given
-			String memberId = "t";
-			int productNo = 2222;
-			int count = 6;
+			String memberId = "000";
+			int productNo = 2;
+			int count = 1;
 			
 			CartVO cart = new CartVO(); 
 			cart.setMemberId(memberId);

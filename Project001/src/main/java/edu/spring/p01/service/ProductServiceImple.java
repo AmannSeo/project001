@@ -65,6 +65,11 @@ public class ProductServiceImple implements ProductService{
 
 	// FINE FRAGRANCES
 	@Override
+	public List<ProductVO> getCateCode1() {
+		logger.info("FACE FRAGRANCES() Call");
+		return dao.getCateCode1();
+	}
+	@Override
 	public List<ProductVO> getCateCode1_1() {
 		logger.info("FACE FRAGRANCES() Call");
 		return dao.getCateCode1_1();
@@ -82,6 +87,11 @@ public class ProductServiceImple implements ProductService{
 
 	// HOME CREATIONS
 	@Override
+	public List<ProductVO> getCateCode2() {
+		logger.info("HOME CREATIONS() Call");
+		return dao.getCateCode2();
+	}
+	@Override
 	public List<ProductVO> getCateCode2_1() {
 		logger.info("HOME CREATIONS() Call");
 		return dao.getCateCode2_1();
@@ -98,6 +108,11 @@ public class ProductServiceImple implements ProductService{
 	}
 
 	// BODY-HAIR-FACE
+	@Override
+	public List<ProductVO> getCateCode3() {
+		logger.info("BODY-HAIR-FACE() Call");
+		return dao.getCateCode3();
+	}
 	@Override
 	public List<ProductVO> getCateCode3_1() {
 		logger.info("BODY-HAIR-FACE() Call");

@@ -3,7 +3,7 @@
   padding : 50px 80px;
 }
 .notice_list table {
-  width: 1200px;
+  width: 100%;
 }
 .notice_list thead {
   background: rgb(0, 5, 16);

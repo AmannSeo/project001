@@ -103,7 +103,8 @@
 	  });
 	});
  	 */
- 	
+ 	 
+$(document).ready(function(){
  	/* 이미지 삽입 */
  	const bobj = $(".image_wrap");
 
@@ -118,26 +119,26 @@
  	} else {
  		bobj.find("img").attr('src', '/resources/imgs/noimg.png');
  	}
- 	
- 	/* 수량 버튼 */
- 	let quantity = $(".quantity_input").val();
-	$(".btn_plus").on("click", function(){
-		$(".quantity_input").val(++quantity);
-	});
-	$(".btn_minus").on("click", function(){
-		if(quantity > 1){
-			$(".quantity_input").val(--quantity);	
-		}
-	});
- 	
- 	/* 서버 전송 데이터 */
- 	const form = {
- 	        memberId : '${member.memberId}',
- 	        productNo : '${productInfo.productNo}',
- 	        productCount : ''
- 	}
- 	
- 	$(".btn_cart").on("click", function(e){
+});	//$(document).ready(function(){
+    
+//수량 버튼 조작
+let quantity = $(".quantity_input").val();
+$(".btn_plus").on("click", function(){
+	$(".quantity_input").val(++quantity);
+});
+$(".btn_minus").on("click", function(){
+	if(quantity > 1){
+		$(".quantity_input").val(--quantity);	
+	}
+});	
+// 서버로 전송할 데이터
+const form = {
+		memberId : '${member.memberId}',
+		productNo : '${productInfo.productNo}',
+		productCount : ''
+}
+// 장바구니 추가 버튼
+	$(".btn_cart").on("click", function(e){
 		form.productCount = $(".quantity_input").val();
 		$.ajax({
 			url: '/cart/add',

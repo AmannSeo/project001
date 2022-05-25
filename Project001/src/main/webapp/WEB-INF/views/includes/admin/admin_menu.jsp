@@ -52,11 +52,11 @@
     <h2>관리자 페이지</h2>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item admin_menu">
+      <!-- <li class="nav-item admin_menu">
         <a href="/admin/index" class="nav-link" aria-current="page">
           <button type="button" id="btn_main" class="btn btn-outline-primary me-2">메인</button>
         </a>
-      </li>
+      </li> -->
       <li class="nav-item admin_menu">
         <a href="/admin/memberManage" class="nav-link text-white">
           <button type="button" id="btn_member" class="btn btn-outline-primary me-2">회원</button>

@@ -148,7 +148,7 @@ $(document).ready(function(){
     let productNo = '<c:out value="${product.productNo }"/>';
     let uploadResult = $("#uploadResult");
     
-    $.getJSON("/product/getAttachList", {productNo : productNo}, function(arr){	
+    $.getJSON("/getAttachList", {productNo : productNo}, function(arr){	
 		
         if(arr.length === 0){		
             
@@ -169,7 +169,7 @@ $(document).ready(function(){
 		str += "<div id='result_card'";
 		str += "data-path='" + obj.uploadPath + "' data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "'";
 		str += ">";
-		str += "<img src='/product/display?fileName=" + fileCallPath +"'>";
+		str += "<img src='/display?fileName=" + fileCallPath +"'>";
 		str += "</div>";		
 		
 		uploadResult.html(str);						

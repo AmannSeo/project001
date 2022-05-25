@@ -22,19 +22,26 @@ public class CartDAOTest {
 	
 	// 카트 생성
 	
-	/*
-	 * @Test public void addCart() { String memberId = "admin"; int productNo = 2;
-	 * int count = 2;
-	 * 
-	 * CartVO cart = new CartVO(); cart.setMemberId(memberId);
-	 * cart.setProductNo(productNo); cart.setProductCount(count);
-	 * 
-	 * int result = 0; result = cartDao.addCart(cart);
-	 * 
-	 * System.out.println("결과 : " + result);
-	 * 
-	 * }
-	 */
+	
+	  @Test 
+	  public void addCart() { 
+		  
+		  String memberId = "admin"; 
+		  int productNo = 2;
+		  int count = 2;
+		  
+		  CartVO cart = new CartVO(); 
+		  cart.setMemberId(memberId);
+		  cart.setProductNo(productNo); 
+		  cart.setProductCount(count);
+		  
+		  int result = 0; 
+		  result = cartDao.addCart(cart);
+		  
+		  System.out.println("결과 : " + result);
+	  
+	  }
+	 
 	 
 	
 	// 카트 삭제
@@ -58,14 +65,12 @@ public class CartDAOTest {
 	
 	// 카트 목록
 	
-	  @Test public void getCartTest() { 
-		  String memberId = "admin";
-	  
-		  List<CartVO> list = cartDao.getCart(memberId); 
-			  for(CartVO cart : list) {
-			  System.out.println(cart); 
-		  } 
-	  }
+	/*
+	 * @Test public void getCartTest() { String memberId = "admin";
+	 * 
+	 * List<CartVO> list = cartDao.getCart(memberId); for(CartVO cart : list) {
+	 * System.out.println(cart); } }
+	 */
 	 
 	
 	// 카트 확인

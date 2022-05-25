@@ -28,12 +28,19 @@ public class AdminDaoTest {
 	 * dao.imageEnroll(vo); }
 	 */
 	
+	/*
+	 * @Test public void getAttachInfoTest() { int productNo = 2;
+	 * 
+	 * List<AttachImageVO> list = dao.getAttchInfo(productNo);
+	 * 
+	 * System.out.println("list : " + list); }
+	 */
+
+	/* 카테고리 리스트 */
 	@Test
-	public void getAttachInfoTest() {
-		int productNo = 2;
+	public void cateListTest() throws Exception{
 		
-		List<AttachImageVO> list = dao.getAttchInfo(productNo);
+		System.out.println("cateList()..........." + dao.cateList());
 		
-		System.out.println("list : " + list);
 	}
 }

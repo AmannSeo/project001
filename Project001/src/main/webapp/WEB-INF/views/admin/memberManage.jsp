@@ -68,7 +68,34 @@
             </tbody>
           </table>
         
-       <div class="paging_num">
+       <%-- <div class="paging_num">
+        <ul class="pageMaker">
+          <c:if test="${pageMaker.hasPrev }"> <!-- 페이지에 이전이 있을경우에만 버튼을 만든다 -->
+            <li class="pageMaker_btn hasPrev">
+              <a href="memberManage?page=${pageMaker.startPageNo - 1 }">이전</a>
+            </li>
+          </c:if>
+        
+          <!-- 반복문에 시작과 끝이 있을 경우 -->
+          <c:forEach begin="${pageMaker.startPageNo }" 
+          end="${pageMaker.endPageNo }" var="num"> 
+            <li class="pageMaker_btn ${pageMaker.criteria.page == num ? "active":""}">
+              <a href="memberManage?page=${num }">${num }</a>
+            </li>
+          </c:forEach>
+          
+         
+          
+          <c:if test="${pageMaker.hasNext }">
+            <li class="pageMaker_btn hasNext">
+              <a href="memberManage?page=${pageMaker.endPageNo + 1 }">다음</a>
+            </li>
+          </c:if>
+        </ul>
+      </div> --%>
+      
+     <!-- 페이징 -->
+      <div class="paging_num">
         <ul class="pageMaker">
           <c:if test="${pageMaker.hasPrev }"> <!-- 페이지에 이전이 있을경우에만 버튼을 만든다 -->
             <li class="pageMaker_btn hasPrev">
@@ -93,7 +120,13 @@
           </c:if>
         </ul>
       </div>
-       
+      
+      <form id="moveForm" action="/admin/memberManage" method="get" >
+        <input type="hidden" name="page" value="${pageMaker.criteria.page}">
+        <input type="hidden" name="numsPerPage" value="${pageMaker.criteria.numsPerPage}">
+        <input type="hidden" name="keyword" value="${pageMaker.criteria.keyword}">
+        <input type="hidden" name="type" value="${pageMaker.criteria.type}">
+      </form>
        
       </div>
      
