@@ -36,7 +36,6 @@
     </a>
 
     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="/product/index" class="nav-link px-2 link-dark">PRODUCTS</a></li>
         <li><a href="/fine-fragrances" class="nav-link px-2 link-dark">FINE FRAGRANCES</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">HOME CREATIONS</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">BODY - HAIR - FACE</a></li>

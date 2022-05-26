@@ -47,6 +47,38 @@ h4 {
   text-decoration: none;
 }
 
+/* 페이지 버튼 인터페이스 */
+.paging_num{
+	text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.paging_num a{
+	color : black;
+}
+.pageMaker{
+    list-style: none !important;
+    display: inline-block;
+}	
+.pageMaker_btn {
+    float: left;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+}
+.hasPrev, .hasNext {
+    border: 1px solid #ccc;
+}
+.hasPrev a, .hasNext a {
+    color: #ccc;
+}
+
+/* 현재 페이지 버튼 */
+.active{							
+	border : 1px solid #ccc;
+	font-weight:400;
+}
 
 
 

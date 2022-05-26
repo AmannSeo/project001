@@ -33,7 +33,7 @@
 <div class="content" style="display: flex;">
   <%@include file="../includes/admin/admin_menu.jsp" %>  
  
- <div class="memberList_wrapper">
+ <div class="memberList_wrapper" style="width: 100%">
     <div class="memberList_wrap">
       <h2>회원 목록</h2>
       <div style="height : 40px;"></div>

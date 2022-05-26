@@ -45,7 +45,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 전체 회원 총 개수 -->
 	<select id="member_total_count" resultType="Integer">
 	
-	     select count(*) total_cnt from ${pro01_product}
+	     select count(*) total_cnt from ${pro01_member}
 	 
 	</select>
 	

@@ -50,21 +50,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 질문 총 개수 -->
 	<select id="help_total_count" resultType="Integer">
 	<![CDATA[
-	     select count(*) from ${pro01_product}
+	     select count(*) from ${pro01_help}
     ]]>
 	     <if test="keyword != null">
-	     	 where product_name like '%' || #{keyword} || '%'
+	     	 where help_name like '%' || #{keyword} || '%'
      	</if>
 	</select>
 	
 	 
 	 <select id="select_by_title_content" resultType = "HelpVO">
 	       select * from ${pro01_help}
-	       where ${title} like #{keyword} or
-	             ${content} like #{keyword}
+	       where ${helpTitle} like #{keyword} or
+	             ${helpContent} like #{keyword}
 	             order by #{helpNo} desc
 	 </select>
 	
 	
 
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+

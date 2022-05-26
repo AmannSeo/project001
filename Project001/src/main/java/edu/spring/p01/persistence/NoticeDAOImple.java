@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.spring.p01.domain.NoticeVO;
+import edu.spring.p01.model.Criteria;
 import edu.spring.p01.pageutil.PageCriteria;
 
 @Repository
@@ -48,7 +49,7 @@ public class NoticeDAOImple implements NoticeDAO{
 	public int getTotalNumsOfRecords(PageCriteria criteria) {
 		logger.info("getTotalNumsOfRecords() Call");
 		logger.info("criteria : " + criteria.getKeyword());
-		return noticeSqlSession.delete(NAMESPACE + ".notice_total_count");
+		return noticeSqlSession.selectOne(NAMESPACE + ".notice_total_count");
 	}
 
 	// 질문 보기

@@ -112,30 +112,11 @@
                     <c:forEach items="${cate1_1}" var="cate"> 
                       <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                     </c:forEach>
-                    <!-- <li><a href="#">THE MATCHA 26</a></li>
-                    <li><a href="#">SANTAL 33</a></li>
-                    <li><a href="#">ANOTHER 13</a></li>
-                    <li><a href="#">THE NOIR 29</a></li>
-                    <li><a href="#">ROSE 31</a></li>
-                    <li><a href="#">BERGAMOTE 22</a></li>
-                    <li><a href="#">BAIE 19</a></li>
-                    <li><a href="#">LYS 41</a></li>
-                    <li><a href="#">TONKA 25</a></li>
-                    <li><a href="#">NEROLI 36</a></li> -->
                   </ul>
                   <ul>
                     <c:forEach items="${cate1_2}" var="cate"> 
                       <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                     </c:forEach>
-                    <!-- <li><a href="#">YLANG 46</a></li>
-                    <li><a href="#">FLEUR D'ORANGER 27</a></li>
-                    <li><a href="#">PATCHOULI 24</a></li>
-                    <li><a href="#">LABDANUM 18</a></li>
-                    <li><a href="#">JASMIN 17</a></li>
-                    <li><a href="#">VETIVER 46</a></li>
-                    <li><a href="#">AMBRETTE 9</a></li>
-                    <li><a href="#">IRIS 39</a></li>
-                    <li><a href="#">OUD 27</a></li> -->
                   </ul>
                 </div>
               </div>
@@ -148,15 +129,6 @@
                     <c:forEach items="${cate1_3}" var="cate"> 
                       <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                     </c:forEach>
-                    <!-- <li><a href="#">EAU DE PARFUM</a></li>
-                    <li><a href="#">DISCOVERY</a></li>
-                    <li><a href="#">BODY LOTION</a></li>
-                    <li><a href="#">SHOWER GEL</a></li>
-                    <li><a href="#">BODY OIL</a></li>
-                    <li><a href="#">TRAVEL TUBES</a></li>
-                    <li><a href="#">LIQUID BALM</a></li>
-                    <li><a href="#">BODY BAR</a></li>
-                    <li><a href="#">DETERGENT</a></li> -->
                   </ul>
                 </div>
               </div>
@@ -176,23 +148,11 @@
                   <c:forEach items="${cate2_1}" var="cate"> 
                     <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                   </c:forEach>
-                  <!-- <li><a href="#">SANTAL 26</a></li>
-                  <li><a href="#">ENCENS 9</a></li>
-                  <li><a href="#">PALO SANTO 14</a></li>
-                  <li><a href="#">CALONE 17</a></li>
-                  <li><a href="#">FIGUE 15</a></li>
-                  <li><a href="#">LAURIER 62</a></li> -->
                 </ul>
                 <ul>
                   <c:forEach items="${cate2_2}" var="cate"> 
                     <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                   </c:forEach>
-                  <!-- <li><a href="#">PETIT GRAIN 21</a></li>
-                  <li><a href="#">CADE 26</a></li>
-                  <li><a href="#">PIN 12</a></li>
-                  <li><a href="#">VERVEINE 32</a></li>
-                  <li><a href="#">CEDRE 11</a></li>
-                  <li><a href="#">ANIS 24</a></li> -->
                 </ul>
               </div>
               </div>
@@ -205,11 +165,6 @@
                     <c:forEach items="${cate2_3}" var="cate"> 
                       <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                     </c:forEach>
-                    <!-- <li><a href="#">CLASSIC CANDLE</a></li>
-                    <li><a href="#">HOME FRAGRANCE</a></li>
-                    <li><a href="#">CONCRETE CANDLE</a></li>
-                    <li><a href="#">VOTIVES</a></li>
-                    <li><a href="#">DISCOVERY</a></li> -->
                   </ul>
                 </div>
               </div>
@@ -229,13 +184,6 @@
                     <c:forEach items="${cate3_1}" var="cate"> 
                       <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                     </c:forEach>
-                    <!-- <li><a href="#">HAND SOAP</a></li>
-                    <li><a href="#">HAND LOTION</a></li>
-                    <li><a href="#">HAND POMADE</a></li>
-                    <li><a href="#">SHOWER GEL</a></li>
-                    <li><a href="#">SHOWER OIL</a></li>
-                    <li><a href="#">BODY CREAM</a></li>
-                    <li><a href="#">BODY SCRUB</a></li> -->
                   </ul>
                 </div>
               </div>
@@ -248,10 +196,6 @@
                     <c:forEach items="${cate3_2}" var="cate"> 
                       <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                     </c:forEach>
-                    <!-- <li><a href="#">SHAMPOO</a></li>
-                    <li><a href="#">CONDITIONER</a></li>
-                    <li><a href="#">HAIR MASK</a></li>
-                    <li><a href="#">SCRUB SHAMPOO</a></li> -->
                   </ul>
                 </div>
               </div>
@@ -264,11 +208,6 @@
                     <c:forEach items="${cate3_3}" var="cate"> 
                       <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                     </c:forEach>
-                    <!-- <li><a href="#">FACE LOTION</a></li>
-                    <li><a href="#">FACIAL CLEANSING OIL</a></li>
-                    <li><a href="#">LIP BALM</a></li>
-                    <li><a href="#">FACE MASK</a></li>
-                    <li><a href="#">FACE SCRUB</a></li> -->
                   </ul>
                 </div>
               </div>
@@ -281,10 +220,6 @@
                     <c:forEach items="${cate3_4}" var="cate"> 
                       <li><a href="search?type=C&cateCode=${cate.cateCode}">${cate.cateName}</a></li>
                     </c:forEach>
-                    <!-- <li><a href="#">HINOKI</a></li>
-                    <li><a href="#">BASIL</a></li>
-                    <li><a href="#">MANDRIN</a></li>
-                    <li><a href="#">UNSCENTED</a></li> -->
                   </ul>
                 </div>
               </div>

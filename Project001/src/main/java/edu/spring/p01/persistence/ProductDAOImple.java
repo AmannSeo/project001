@@ -52,11 +52,6 @@ public class ProductDAOImple implements ProductDAO{
 
 	// FINE FRAGRANCES
 	@Override
-	public List<ProductVO> getCateCode1() {
-		logger.info("FACE FRAGRANCES() Call");
-		return sqlSession.selectList(NAMESPACE + ".getCateCode1");
-	}
-	@Override
 	public List<ProductVO> getCateCode1_1() {
 		logger.info("FACE FRAGRANCES() Call");
 		return sqlSession.selectList(NAMESPACE + ".getCateCode1_1");
@@ -74,11 +69,6 @@ public class ProductDAOImple implements ProductDAO{
 
 	// HOME CREATIONS
 	@Override
-	public List<ProductVO> getCateCode2() {
-		logger.info("HOME CREATIONS() Call");
-		return sqlSession.selectList(NAMESPACE + ".getCateCode2");
-	}
-	@Override
 	public List<ProductVO> getCateCode2_1() {
 		logger.info("HOME CREATIONS() Call");
 		return sqlSession.selectList(NAMESPACE + ".getCateCode2_1");
@@ -95,11 +85,6 @@ public class ProductDAOImple implements ProductDAO{
 	}
 
 	// BODY-HAIR-FACE
-	@Override
-	public List<ProductVO> getCateCode3() {
-		logger.info("BODY-HAIR-FACE() Call");
-		return sqlSession.selectList(NAMESPACE + ".getCateCode3");
-	}
 	@Override
 	public List<ProductVO> getCateCode3_1() {
 		logger.info("BODY-HAIR-FACE() Call");

@@ -45,7 +45,7 @@ public class AdminDAOImple implements AdminDAO{
 	@Override
 	public int getTotalNumsOfRecords(PageCriteria criteria) {
 		logger.info("getToalNumOfRecords() Call");
-		logger.info("criteria" + criteria.getKeyword());
+		logger.info("criteria : " + criteria.getKeyword());
 		return sqlSession.selectOne(NAMESPACE + ".product_total_count");
 	}
 	

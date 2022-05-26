@@ -17,6 +17,8 @@
     <!-- index/css -->
     <link href="/resources/css/help.css" rel="stylesheet">
     
+    
+    
 <title>질문 게시판</title>
 </head>
 <body>
@@ -27,6 +29,7 @@
   <div class="help_list" style="height : 50rem;">
     <div class="help_bg" style="height: 420px"></div>
     <h2>질문 게시판</h2>
+    <div style="height : 40px;"></div>
     <table class="help_list_table">
         <thead>
           <tr>
@@ -53,7 +56,36 @@
           </c:forEach>
         </tbody>
       </table>
+      
+      <div class="paging_num">
+          <ul class="pageMaker">
+            <c:if test="${pageMaker.hasPrev }"> <!-- 페이지에 이전이 있을경우에만 버튼을 만든다 -->
+              <li class="pageMaker_btn hasPrev">
+                <a href="help?page=${pageMaker.startPageNo - 1 }">이전</a>
+              </li>
+            </c:if>
+          
+            <!-- 반복문에 시작과 끝이 있을 경우 -->
+            <c:forEach begin="${pageMaker.startPageNo }" 
+            end="${pageMaker.endPageNo }" var="num"> 
+              <li class="pageMaker_btn ${pageMaker.criteria.page == num ? "active":""}">
+                <a href="help?page=${num }">${num }</a>
+              </li>
+            </c:forEach>
+            
+           
+            
+            <c:if test="${pageMaker.hasNext }">
+              <li class="pageMaker_btn hasNext">
+                <a href="help?page=${pageMaker.endPageNo + 1 }">다음</a>
+              </li>
+            </c:if>
+          </ul>
+        </div>
+        
+        
   </div>
+  
 </div>
 
 <!-- footer -->

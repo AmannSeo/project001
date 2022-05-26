@@ -2,9 +2,6 @@
 .memberList_wrap{
   padding : 50px 80px;
 }
-.member_list table {
-  width: 1200px;
-}
 .member_list thead {
   background: rgb(0, 5, 16);
 }

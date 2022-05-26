@@ -485,8 +485,8 @@ public class AdminController {
 	// 고객센터 글 목록(관리자 페이지)
 	@GetMapping("/helpList")
 	public void helpListGET(Model model, Integer page, Integer numsPerPage) {
-		logger.info("list() Call");
-		logger.info("list page = " + page + ", list numsPerPage =" + numsPerPage);
+		logger.info("helpListGET() Call");
+		logger.info("helpListGET page = " + page + ", list numsPerPage =" + numsPerPage);
 		
 		// Paging 처리
 		PageCriteria criteria = new PageCriteria();

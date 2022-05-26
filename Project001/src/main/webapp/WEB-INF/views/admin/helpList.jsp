@@ -19,9 +19,12 @@
 
     <!-- index/css -->
     <link rel="stylesheet" href="/resources/css/admin/helpList.css">
+    
+    <!-- custom css -->
+    <link rel="stylesheet" href="/resources/css/includes/page.css"> 
 
 <meta charset="UTF-8">
-<title>질문 게시판</title>
+<title>FAQ</title>
 </head>
 <body>
 <!-- header -->
@@ -34,7 +37,7 @@
   
 
   <div class="help_list" style="width: 100%">
-  <h2>질문 게시판</h2>
+  <h2>FAQ</h2>
   <div style="height : 40px;"></div>
   <!-- 질문 존재 O -->
     <c:if test="${listCheck != 'empty' }">
@@ -69,41 +72,35 @@
     <div class="pro_reg_btn">
       <a href="helpInsert"><input type="button" value="질문 등록"></a>
     </div>
+  
+    <div class="paging_num">
+      <ul class="pageMaker">
+        <c:if test="${pageMaker.hasPrev }"> <!-- 페이지에 이전이 있을경우에만 버튼을 만든다 -->
+          <li class="pageMaker_btn hasPrev">
+            <a href="helpList?page=${pageMaker.startPageNo - 1 }">이전</a>
+          </li>
+        </c:if>
+      
+        <!-- 반복문에 시작과 끝이 있을 경우 -->
+        <c:forEach begin="${pageMaker.startPageNo }" 
+        end="${pageMaker.endPageNo }" var="num"> 
+          <li class="pageMaker_btn ${pageMaker.criteria.page == num ? "active":""}">
+            <a href="helpList?page=${num }">${num }</a>
+          </li>
+        </c:forEach>
+        
+       
+        
+        <c:if test="${pageMaker.hasNext }">
+          <li class="pageMaker_btn hasNext">
+            <a href="helpList?page=${pageMaker.endPageNo + 1 }">다음</a>
+          </li>
+        </c:if>
+      </ul>
+    </div>
   </div>
   
-  <!-- 페이징 -->
-      <div class="paging_num">
-        <ul class="pageMaker">
-          <c:if test="${pageMaker.hasPrev }"> <!-- 페이지에 이전이 있을경우에만 버튼을 만든다 -->
-            <li class="pageMaker_btn hasPrev">
-              <a href="helpList?page=${pageMaker.startPageNo - 1 }">이전</a>
-            </li>
-          </c:if>
-        
-          <!-- 반복문에 시작과 끝이 있을 경우 -->
-          <c:forEach begin="${pageMaker.startPageNo }" 
-          end="${pageMaker.endPageNo }" var="num"> 
-            <li class="pageMaker_btn ${pageMaker.criteria.page == num ? "active":""}">
-              <a href="helpList?page=${num }">${num }</a>
-            </li>
-          </c:forEach>
-          
-         
-          
-          <c:if test="${pageMaker.hasNext }">
-            <li class="pageMaker_btn hasNext">
-              <a href="helpList?page=${pageMaker.endPageNo + 1 }">다음</a>
-            </li>
-          </c:if>
-        </ul>
-      </div>
-      
-      <form id="moveForm" action="/admin/helpList" method="get" >
-        <input type="hidden" name="page" value="${pageMaker.criteria.page}">
-        <input type="hidden" name="numsPerPage" value="${pageMaker.criteria.numsPerPage}">
-        <input type="hidden" name="keyword" value="${pageMaker.criteria.keyword}">
-        <input type="hidden" name="type" value="${pageMaker.criteria.type}">
-      </form>
+    
     
       
 </div>    

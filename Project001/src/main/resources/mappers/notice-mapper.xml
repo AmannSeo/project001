@@ -50,10 +50,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 질문 총 개수 -->
 	<select id="notice_total_count" resultType="Integer">
 	<![CDATA[
-	     select count(*) from ${pro01_product}
+	     select count(*) from ${pro01_notice}
     ]]>
 	     <if test="keyword != null">
-	     	 where product_name like '%' || #{keyword} || '%'
+	     	 where notice_name like '%' || #{keyword} || '%'
      	</if>
 	</select>
 	
@@ -64,42 +64,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	             ${noticeContent} like #{keyword}
 	             order by #{noticeNo} desc
 	 </select>
-	
-	<select id="getListWithPaging" resultType="noticeVO">
-		<![CDATA[
-		select
-			notice_no, notice_title, notice_name, notice_content, notice_reg_date
-				from(
-					select /* +INDEX_DESC(pro01_notice pk_notice) */
-						rownum rn, notice_no, notice_title, notice_name, notice_content, notice_reg_date
-					from
-						pro01_notice
-					where
-		]]>
-		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
-			<foreach item='type' collection="typeArr">
-				<trim prefix="OR">
-					<choose>
-						<when test="type == 'T' toString()">
-							notice_title '%' ||#{keyword}|| '%'
-						</when>
-						<when test="type == 'C' toString()">
-							notice_content '%' ||#{keyword}|| '%'
-						</when>
-						<when test="type == 'N' toString()">
-							notice_name '%' ||#{keyword}|| '%'
-						</when>
-					</choose>
-				</trim>
-			</foreach>
-		</trim>
-		
-		<![CDATA[
-			rownum <= #{pageNum} * #{amount}
-			)
-		where rn > (#{pageNum} -1) * #{amount}
-		]]>
-		
-	</select>
+
 
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

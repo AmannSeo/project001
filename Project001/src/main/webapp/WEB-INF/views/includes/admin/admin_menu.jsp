@@ -74,7 +74,7 @@
       </li>
       <li class="nav-item admin_menu">
         <a href="/admin/helpList" class="nav-link text-white">
-          <button type="button" id="btn_help" class="btn btn-outline-primary me-2">질문 게시판</button>
+          <button type="button" id="btn_help" class="btn btn-outline-primary me-2">FAQ</button>
         </a>
       </li>
     </ul>
